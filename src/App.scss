@@ -1,0 +1,404 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap");
+
+@font-face {
+  font-family: NewYork;
+  src: url("./assets/fonts/SIMPLECANDY.ttf") format("opentype");
+}
+@font-face {
+  font-family: Querist;
+  src: url("./assets/fonts/Querist-Regular.otf") format("opentype");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1rem 5rem;
+  font-family: NewYork;
+  background-color: #111111;
+  color: white;
+}
+
+p,
+button {
+  font-family: Querist;
+}
+
+.head {
+  font-family: NewYork !important;
+  font-size: 5rem;
+}
+
+//__________header css start__________
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0;
+
+  &-components {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    svg {
+      stroke: white !important;
+      transform: scale(1.1);
+
+      &:hover {
+        stroke: red !important;
+        cursor: pointer;
+      }
+    }
+    span {
+      border-right: 1px solid white;
+      height: 60%;
+      width: 2px;
+    }
+  }
+
+  .logo {
+    width: auto;
+    height: 1.7rem;
+  }
+  .avatar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    svg {
+      width: 1rem;
+    }
+    img {
+      width: 2.5rem;
+      border-radius: 100%;
+      border: 1px solid #ffffff;
+      padding: 0.14rem;
+    }
+  }
+  .icon {
+    width: 2rem;
+    background-color: white;
+  }
+}
+//__________header css end__________
+
+//__________home css start__________
+
+.hero-sec {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  // gap: 2rem;
+  // overflow: hidden;
+
+  &-shadow {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 40px 0px 50px 40px #111111;
+    z-index: 1;
+  }
+
+  &-btn {
+    background-color: #d31e27;
+    border: 0;
+    padding: 1rem 3rem;
+    border-radius: 5rem;
+    color: white;
+    font-size: 1rem;
+    transition: ease 0.4s;
+    cursor: pointer;
+
+    &:hover {
+      background: linear-gradient(30deg, #d31e27, #68191e);
+      transition: ease 0.4s;
+    }
+  }
+}
+
+//__________HOME CSS END__________
+
+//__________Slider css start__________
+
+.container-slider {
+  overflow: hidden;
+}
+
+// .slideshow {
+//   width: 100%;
+// }
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  object-fit: cover;
+  min-width: 100%;
+  height: 35rem;
+}
+//__________Slider css end__________
+
+//__________shiny button start__________
+.custom-btn {
+  width: fit-content;
+  // height: 40px;
+  padding: 10px 25px;
+  border: 1px solid white;
+  color: white;
+  font-size: 1.4rem;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.btn-11 {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btn-11:hover {
+  background: #fff;
+  color: #000;
+}
+.btn-11:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  top: -180px;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #fff;
+  animation: shiny-btn1 3s ease-in-out infinite;
+}
+.btn-11:active {
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+@keyframes shiny-btn1 {
+  0% {
+    transform: scale(0) rotate(45deg);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(0) rotate(45deg);
+    opacity: 0.5;
+  }
+  81% {
+    transform: scale(4) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(50) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+//__________shiny button end__________
+
+//__________artists section start__________
+.artists-list {
+  margin: 5rem auto;
+  display: grid;
+  place-items: center;
+  margin-top: 7rem;
+  .head {
+    margin-bottom: 3rem;
+    font-size: 3rem;
+  }
+  &-imgs {
+    display: flex;
+    gap: 2rem;
+    text-align: center;
+    .artist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    span {
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.8rem;
+      background-color: #d31e27;
+      padding: 0.1rem 0.5rem;
+      border-radius: 1rem;
+    }
+    svg {
+      fill: #d7fc70;
+      // stroke: red;
+    }
+    img {
+      width: 10rem;
+      height: 10rem;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 50%;
+      border: 1px solid white;
+      padding: 0.4rem;
+      // margin-bottom: 1rem;
+    }
+  }
+}
+//__________artists section end__________
+
+//__________featured section start__________
+.featured-sec {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 20rem);
+  overflow: hidden;
+  gap: 1.1rem;
+  margin: 4rem -4rem;
+  padding: 4rem;
+
+  // background-color: white;
+  // background-image: url("./assets/samples/painting7.jpg");
+  // background-size: cover;
+  // background-attachment: fixed;
+  // background-position: 40%;
+  div:nth-child(2) {
+    // display: none;
+    grid-row: 1/3;
+    grid-column: 2/3;
+  }
+
+  div:nth-child(6) {
+    grid-row: 2/3;
+    grid-column: 3/5;
+  }
+
+  .featured-sec-div {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #e5e5e5;
+      opacity: 0;
+      transition: 0.2s ease all;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 30%;
+      overflow: hidden;
+      transition: ease 0.4s;
+    }
+
+    &:hover {
+      cursor: pointer;
+      .featured-sec-center {
+        display: block;
+      }
+
+      img {
+        transform: scale(1.1);
+      }
+    }
+    .featured-sec-center {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #d7fc70;
+      color: black;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+//__________featured section end__________
+
+//__________shiny button start__________
+.fill {
+  padding: 0.7rem 1.6rem;
+  padding-top: 1rem;
+  outline: 0;
+  border: 1px solid #97bb34;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  // color: white;
+  border-radius: 1px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.fill::after {
+  content: "";
+  background-color: #d7fc70;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+  border-radius: 1px;
+}
+
+.fill:hover::after {
+  top: 0px;
+  left: 0px;
+  border-radius: 1px;
+}
+//__________shiny button end__________
+
+//__________footer start__________
+.footer {
+  border-top: 0.4px solid white;
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 2rem;
+  margin-bottom: 4rem;
+  p {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  div:nth-child(1) {
+    grid-column: 1/-1;
+  }
+  .techs {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    gap: 1rem;
+    div {
+      align-items: center;
+      gap: 1rem;
+      display: flex;
+    }
+    img {
+      height: 1.5rem;
+      // width: 100%;
+    }
+  }
+}
+.payment {
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 6rem;
+  }
+}
