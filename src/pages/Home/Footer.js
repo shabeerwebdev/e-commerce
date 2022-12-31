@@ -40,8 +40,8 @@ function Footer() {
         <div className="techs">
           <p>Techs used </p>
           <div>
-            {arr.map((item) => (
-              <img alt="" src={item} />
+            {arr.map((item, i) => (
+              <img key={i} alt="" src={item} />
             ))}
           </div>
         </div>
@@ -49,8 +49,8 @@ function Footer() {
         <div className="techs">
           <p>Follow me </p>
           <div>
-            {arr2.map((item) => (
-              <img alt="" src={item} />
+            {arr2.map((item, i) => (
+              <img key={i} alt="" src={item} />
             ))}
           </div>
         </div>

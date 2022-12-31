@@ -1,0 +1,60 @@
+.stimu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  columns: 5;
+  column-gap: 1rem;
+  gap: 1rem;
+  /* max-height: 100vh; */
+  /* margin: 0 3rem; */
+  object-position: top;
+}
+
+.stimu .img {
+  width: 100%;
+  /* overflow: hidden; */
+  /* break-inside: avoid; */
+  margin-bottom: 1rem;
+  animation-name: scroll;
+  animation-duration: 5s;
+  animation-timing-function: ease-in;
+  /* animation-iteration-count: infinite; */
+  /* animation-delay: 1s; */
+}
+.stimu .img img {
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .stimu {
+    columns: 4;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    margin: 1rem;
+  }
+  .stimu {
+    columns: 3;
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(-300%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.cos {
+  z-index: 99;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.423);
+  width: 100vw;
+  height: 100vh;
+  margin: -5rem;
+  margin-top: -9rem;
+}

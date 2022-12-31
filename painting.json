@@ -1,0 +1,494 @@
+{
+  "data": [
+    {
+      "title": "Primavera",
+      "description": "One of the famous paintings, Primavera is the largest panel painting in tempera paint by Botticelli.",
+      "price": 3973,
+      "soldCount": 0,
+      "drawnBy": "Botticelli",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400321/paintings/Primavera_mmed70.png"
+    },
+    {
+      "title": "The Large Bathers",
+      "description": "This is the largest, the last work from Cézanne’s lifelong exploration, and perhaps in its unfinished state, it is pure and serene.",
+      "price": 2737,
+      "soldCount": 0,
+      "drawnBy": "Paul Cézanne",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400322/paintings/The-Large-Bathers_svp628.png"
+    },
+    {
+      "title": "Hope II",
+      "description": "The painting depicts a female with a cranium sheltered into her dressing gown, who turns her head down towards her rounded belly.",
+      "price": 9353,
+      "soldCount": 0,
+      "drawnBy": "Gustav Klimt",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400321/paintings/Hope-II_ejj5zb.png"
+    },
+    {
+      "title": "Nude Descending a Staircase",
+      "description": "This artwork by Marcel Duchamp and Rrose Sélavyis is a Modernist classic and has become one of the most famous paintings of its time.",
+      "price": 1037,
+      "soldCount": 0,
+      "drawnBy": "Marcel Duchamp",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400321/paintings/Nude-Descending-a-Staircase_zvvbvs.png"
+    },
+    {
+      "title": "Liberty Leading the People",
+      "description": "It is about Commemorating the July Revolution of 1830, which toppled King Charles X of France’.",
+      "price": 3345,
+      "soldCount": 0,
+      "drawnBy": "Eugène Delacroix",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400321/paintings/Liberty-Leading-the-People_wqdam1.png"
+    },
+    {
+      "title": "rises",
+      "description": "History says that it was one of Van Gogh’s last paintings before he shot himself with a revolver.",
+      "price": 2665,
+      "soldCount": 0,
+      "drawnBy": "Vincent Van Gogh",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400321/paintings/the-_unxvpr.png"
+    },
+    {
+      "title": "The Swing",
+      "description": "Known as the Happy Accidents of the Swing, is an 18th-century oil painting by Jean-Honoré Fragonard.",
+      "price": 6064,
+      "soldCount": 0,
+      "drawnBy": "Jean-Honoré Fragonard.",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400315/paintings/11_vgvlq9.png"
+    },
+    {
+      "title": "Bal du moulin de la Galette",
+      "description": "The scene portrays a regular Sunday afternoon at the Moulin de la Galette located in the district of Montmartre in Paris.",
+      "price": 7524,
+      "soldCount": 0,
+      "drawnBy": "Pierre-Auguste Renoir",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400320/paintings/Bal-du-moulin-de-la-Galette_vodxs5.png"
+    },
+    {
+      "title": "Nighthawks",
+      "description": "The painting has meticulously depicted the isolation of people, felt in a modern urban setting.",
+      "price": 4402,
+      "soldCount": 0,
+      "drawnBy": "Edward Hopper",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400320/paintings/Nighthawk-_car2hd.png"
+    },
+    {
+      "title": "The Storm On The Sea Of Galilee",
+      "description": "The biblical scene represents nature against human vulnerability; however, it also shows faith in seemingly calm and unbothered Jesus.",
+      "price": 6553,
+      "soldCount": 0,
+      "drawnBy": "Rembrandt van Rijn",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400320/paintings/The-Storm-On-The-Sea-Of-Galilee_vsbvud.png"
+    },
+    {
+      "title": "Christina’s World",
+      "description": "Christina features a young woman seen from behind, wearing a pastel dress and lying in the grassy field.",
+      "price": 4415,
+      "soldCount": 0,
+      "drawnBy": "Andrew Wyeth",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400320/paintings/Christinas-World_jmj2jc.png"
+    },
+    {
+      "title": "The Sleeping Gypsy",
+      "description": "The dream-like atmosphere and simple geometric designs bring attention to Rousseau’s remarkable illustrative imagination.",
+      "price": 5852,
+      "soldCount": 0,
+      "drawnBy": "Henri Rousseau",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400320/paintings/The-Sleeping-Gypsy_vac6pu.png"
+    },
+    {
+      "title": "Le Déjeuner Sur l’herbe",
+      "description": "The 16th-century work of art The Pastoral Concert and The Judgment of Paris was Manet’s inspiration for this artwork.",
+      "price": 7221,
+      "soldCount": 0,
+      "drawnBy": "Edouard Manet",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400315/paintings/12_rs0sr7.png"
+    },
+    {
+      "title": "The Great Wave off Kanagawa",
+      "description": "While sometimes assumed to be a tsunami, the wave is likely to be a large rogue wave, featuring the shadow of Mt. Fiji in the background.",
+      "price": 7488,
+      "soldCount": 0,
+      "drawnBy": "Katsushika Hokusai",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400320/paintings/the-great-wave-off-kanagawa_rqbojh.png"
+    },
+    {
+      "title": "Lady With An Ermine",
+      "description": "Painted on a wooden panel in oils, this widely attributed and famous artwork portrays a half-length figure of a woman by Leonardo Da Vinci.",
+      "price": 9935,
+      "soldCount": 0,
+      "drawnBy": "Leonardo Da Vinci.",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400320/paintings/lady-with-an-ermine-_xdyplg.png"
+    },
+    {
+      "title": "Olympia",
+      "description": "Manet’s famous painting of Olympia, was not showcased until two years later after its completion.",
+      "price": 8119,
+      "soldCount": 0,
+      "drawnBy": "Edouard Manet",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400319/paintings/Olympia_kb1mzm.png"
+    },
+    {
+      "title": "Van Gogh Self-Portrait (Without Beard)",
+      "description": "Vincent van Gogh’s Self-Portrait without Beard is certainly one of the most notable paintings of all time.",
+      "price": 8870,
+      "soldCount": 0,
+      "drawnBy": "Van Gogh",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400320/paintings/Van-Gogh-Self-Portrait_wvnkdt.png"
+    },
+    {
+      "title": "The Third of May",
+      "description": "The painting speaks about liberation, particularly in the context of Spain’s turbulent history.",
+      "price": 1977,
+      "soldCount": 0,
+      "drawnBy": "Francisco Goya",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400319/paintings/The-Third-of-May_ksqguk.png"
+    },
+    {
+      "title": "No.5, 1948",
+      "description": "In this painting, Pollock was using new techniques to express his emotions with colors and lines.",
+      "price": 8819,
+      "soldCount": 0,
+      "drawnBy": "Jackson Pollock",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400318/paintings/No.5-1948_f09yor.png"
+    },
+    {
+      "title": "The School of Athens",
+      "description": "The Picture is Raphael’s masterpiece and an absolute personification of the classical spirit of the Renaissance.",
+      "price": 7403,
+      "soldCount": 0,
+      "drawnBy": "Raphael",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400319/paintings/The-School-of-Athens_rtj6gy.png"
+    },
+    {
+      "title": "Café Terrace At Night",
+      "description": "Of all the classic paintings, The Cafe Terrace on the Place du Forum is one of its kind.",
+      "price": 9597,
+      "soldCount": 0,
+      "drawnBy": "Vincent Van Gogh",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400318/paintings/Cafe-Terrace-at-Night_aeoaea.png"
+    },
+    {
+      "title": "The Son of Man",
+      "description": "A hovering green apple covers the man’s face; however, the man’s eyes peek over the edge of the apple.",
+      "price": 5158,
+      "soldCount": 0,
+      "drawnBy": "Abishek",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400318/paintings/The-Son-of-Man-_zskscm.png"
+    },
+    {
+      "title": "Sistine Chapel Ceiling",
+      "description": "The Sistine Chapel is known as the greatest example of High Renaissance art.",
+      "price": 9880,
+      "soldCount": 0,
+      "drawnBy": "Abishek",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400318/paintings/Sistine-Chapel-Ceiling_rrbocb.png"
+    },
+    {
+      "title": "Starry Night Over The Rhône",
+      "description": "‘Starry nights over the Rhone’, captures the reflections of the gaslighting in Arles across the glimmering blue water of the Rhone.",
+      "price": 3092,
+      "soldCount": 0,
+      "drawnBy": "Abishek",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400319/paintings/Starry-Night-Over-the-Rhone_vxa6nl.png"
+    },
+    {
+      "title": "Portrait of Adele Bloch-Bauer I",
+      "description": "In the 1940s, the Nazis seized the painting and renamed it The Woman in Gold, to remove any references to the Jewish family name.",
+      "price": 1901,
+      "soldCount": 0,
+      "drawnBy": "Abishek",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400317/paintings/Portrait-of-Adele-Bloch-Bauer-I_qnzmqd.png"
+    },
+    {
+      "title": "Salvator Mundi",
+      "description": "“As a well-spent day brings happy sleep, so a life well spent brings happy death.”- Leonardo Da Vinci",
+      "price": 1901,
+      "soldCount": 0,
+      "drawnBy": "Abishek",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400317/paintings/Salvator-Mundi_vhkurk.png"
+    },
+    {
+      "title": "Luncheon Of The Boating Party",
+      "description": "Known as one of the most versatile Impressionist painters the ‘luncheon of the boating Party’ is Auguste Renoir’s most renowned work.",
+      "price": 1901,
+      "soldCount": 0,
+      "drawnBy": "Ayushi",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400318/paintings/Luncheon-of-the-Boating-Party_hclpcy.png"
+    },
+    {
+      "title": "Wanderer Above The Sea Of Fog",
+      "description": "Believed to be a self-portrait, the young figure standing above the valley cloaked in mountain mist has the same fiery red hair as the artist.",
+      "price": 5681,
+      "soldCount": 0,
+      "drawnBy": "Ayushi",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400317/paintings/Wanderer-above-the-Sea-of-Fog_n41r3u.png"
+    },
+    {
+      "title": "Whistler’s Mother",
+      "description": "Also known as Arrangement in Grey and Black No. 1, made on oil on canvas created by the painter James McNeill Whistler.",
+      "price": 4460,
+      "soldCount": 0,
+      "drawnBy": "Nayomee",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400316/paintings/Whistlers-Mother_pq0ns2.png"
+    },
+    {
+      "title": "The Flower Carrier",
+      "description": "Known in its native tongue as “Cargador de Flores” is painted on a Masonite.",
+      "price": 6029,
+      "soldCount": 0,
+      "drawnBy": "Ayushi",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400316/paintings/The-Flower-Carrier_m8mmiq.png"
+    },
+    {
+      "title": "American Gothic",
+      "description": "Painted with oil on Beaver Board, this is Grant Wood’s most impressive painting.",
+      "price": 6213,
+      "soldCount": 0,
+      "drawnBy": "Ayushi",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400316/paintings/American-Gothic-_jzbtm5.png"
+    },
+    {
+      "title": "Impression, Sunrise",
+      "description": "Impression, Sunrise was painted at Monet’s hometown, on the port of Le Havre in France, said to be completed in one sitting.",
+      "price": 7398,
+      "soldCount": 0,
+      "drawnBy": "Ayushi",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400316/paintings/Impression-Sunrise_p01pgh.png"
+    },
+    {
+      "title": "A Sunday Afternoon on the Island of La Grande Jatte",
+      "description": "He was an ambitious young man with a scientific theory to prove, Seurat was the pioneer in the technique of pointillist.",
+      "price": 6607,
+      "soldCount": 0,
+      "drawnBy": "Nayomee",
+      "featured": false,
+      "category": "Hand Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400316/paintings/A-Sunday-Afternoon-on-the-Island-of-La-Grande-Jatte_mrx1ol.png"
+    },
+    {
+      "title": "Les Demoiselles d’Avignon",
+      "description": "‘Les Demoiselles d’Avignon’ is seen as a proto-cubism and is considered as the most influential painting in the cubism art form.",
+      "price": 6063,
+      "soldCount": 0,
+      "drawnBy": "Nayomee",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400317/paintings/Les-Demoiselles-dAvignon_ms36rk.png"
+    },
+    {
+      "title": "Arnolfini Portrait",
+      "description": "It depicts the Italian businessperson Giovanni di Nicolao Arnolfini and his wife, presumptively in their house in the Flemish town of Bruges.",
+      "price": 8398,
+      "soldCount": 0,
+      "drawnBy": "Nayomee",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400316/paintings/Arnolfini-Portrait_sisr4p.png"
+    },
+    {
+      "title": "The Garden of Earthly Delights",
+      "description": "Hieronymus Bosch’s triptych was of creation, human futility and damnation was the depiction of the fleetingness of human life.",
+      "price": 1828,
+      "soldCount": 0,
+      "drawnBy": "Nayomee",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400315/paintings/The-Garden-of-Earthly-Delights_ivyq1t.png"
+    },
+    {
+      "title": "The Night Watch",
+      "description": "Known as one of the most famous paintings of all time, Rembrandt was the master of light manipulation.",
+      "price": 5100,
+      "soldCount": 0,
+      "drawnBy": "Sultana",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": ""
+    },
+    {
+      "title": "The Persistence of Memory",
+      "description": "The Persistence of Memory is one of the most recognizable works of this Spanish artist and Surrealist icon.",
+      "price": 9547,
+      "soldCount": 0,
+      "drawnBy": "Sultana",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": ""
+    },
+    {
+      "title": "Water Lilies’ Series ",
+      "description": "Over the last three decades of his life, Claude Monet Painted more than 250 water lilies paintings.",
+      "price": 6932,
+      "soldCount": 0,
+      "drawnBy": "Sultana",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": ""
+    },
+    {
+      "title": "Creation of Adam",
+      "description": "The painting takes a biblical narrative from the Book of Genesis, in which God gives life to Adam, the first man.",
+      "price": 5792,
+      "soldCount": 0,
+      "drawnBy": "Sultana",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400314/paintings/Creation-of-Adam_lxz1cc.png"
+    },
+    {
+      "title": "Las Meninas",
+      "description": "This painting is depicting life in the court of King Philip IV of Spain and stands the 9th in the list of top famous paintings.",
+      "price": 4580,
+      "soldCount": 0,
+      "drawnBy": "Sultana",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400314/paintings/Las-Meninas_q5qugi.png"
+    },
+    {
+      "title": "The Birth of Venus",
+      "description": "Bringing a renewed interest in classic Greek culture with Early Renaissance style.",
+      "price": 3713,
+      "soldCount": 0,
+      "drawnBy": "Sultana",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400314/paintings/The-Birth-of-Venus_e4zwda.png"
+    },
+    {
+      "title": "The Girl With The Pearl Earring",
+      "description": "Girl With a Pearl Earring is Johannes Vermeer’s most celebrated and mysterious artwork.",
+      "price": 2795,
+      "soldCount": 0,
+      "drawnBy": "Miru",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400314/paintings/Girl-With-a-Pearl-Earring_r7vam9.png"
+    },
+    {
+      "title": "The Kiss",
+      "description": "The painting portrays a passionate couple holding each other and their bodies tangled in complex decorative robes.",
+      "price": 8852,
+      "soldCount": 0,
+      "drawnBy": "Miru",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400317/paintings/The-kiss_ro3zyt.png"
+    },
+    {
+      "title": "Guernica",
+      "description": "Guernica is not only a famous painting but also a powerful political statement.",
+      "price": 6546,
+      "soldCount": 0,
+      "drawnBy": "Pablo Picasso",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400315/paintings/Guernica_wd2mpm.png"
+    },
+    {
+      "title": "The Scream",
+      "description": "The Scream is originally titled ‘The Scream of Nature’ and it is not a single work of art.",
+      "price": 1983,
+      "soldCount": 0,
+      "drawnBy": "Miru",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400313/paintings/the-scream-_eovz8i.png"
+    },
+    {
+      "title": "The Starry Night",
+      "description": "Widely hailed as his magnum opus, this painting’s beauty is timeless and universal.",
+      "price": 6932,
+      "soldCount": 0,
+      "drawnBy": "Dhakshinya",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400313/paintings/The-starry-night_q2evra.png"
+    },
+    {
+      "title": "The Last Supper",
+      "description": "The painting depicts the last time Jesus broke bread with his disciples before his crucifixion.",
+      "price": 9167,
+      "soldCount": 0,
+      "drawnBy": "Dhakshinya",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400313/paintings/the-last-supper-1_swl0fb.png"
+    },
+    {
+      "title": "Mona Lisa",
+      "description": "This classic painting is not only the most famous painting but also the most expensive painting of all time.",
+      "price": 4120,
+      "soldCount": 0,
+      "drawnBy": "Dhakshinya",
+      "featured": false,
+      "category": "Digital Painting",
+      "image": "https://res.cloudinary.com/diyxzoyfg/image/upload/v1672400313/paintings/Mona-Lisa_wgpmwq.png"
+    }
+  ]
+}

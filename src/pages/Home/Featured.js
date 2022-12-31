@@ -21,7 +21,7 @@ function Featured() {
     <div className="featured-sec">
       <p className="head"> Featured paintings this week</p>
       {arr.map((src, i) => (
-        <div className="featured-sec-div">
+        <div key={i} className="featured-sec-div">
           <img src={src} alt="" />
           <p className="featured-sec-center">Buy Now</p>
         </div>
