@@ -15,6 +15,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/artist" element={<Artist />} />
+        {/* <Route path="/success" element={<Success />} /> */}
+
       </Routes>
     </div>
   );

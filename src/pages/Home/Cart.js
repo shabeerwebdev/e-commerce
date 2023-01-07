@@ -18,7 +18,7 @@ function Cart({ openCart, setCartOpen, iconRef }) {
 
   const { email } = user?.user;
 
-  // console.log(user.user.user.email, "user");
+  console.log(email, "user");
   const dispatch = useDispatch();
 
   const reg = /\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g;
@@ -133,7 +133,8 @@ function Cart({ openCart, setCartOpen, iconRef }) {
 
   const [sessionId, setSessionId] = useState();
 
-  const makePayment = async () => {
+  const makePayment = async (e) => {
+    e.preventDefault();
     const stripe = await loadStripe(
       "pk_test_51MKOjUSA9KTwl2nFhZEu6ZMFmxyTDJp8UHrHn0FD0M2Mw59Dz32IjFYRWAovvsZSWd6hmH3IxEOj8NcIUF4WW0Xt00YxSMOmJB"
     );
@@ -153,37 +154,57 @@ function Cart({ openCart, setCartOpen, iconRef }) {
 
     // console.log(amount, order_id, "here");
 
-    const body = { products: cart.products };
+    const body = { products: cart.products, userId: user.user._id };
+
     const headers = {
       "Content-Type": "application/json",
     };
 
-    const response = await fetch(
-      "http://localhost:8800/api/checkout/create-checkout-session",
-      {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(body),
-      }
-    );
+    axios
+      .post("http://localhost:8800/api/checkout/create-checkout-session", {
+        products: cart.products,
+        userId: user.user._id,
+        email: user.user.email,
+      })
+      .then((res) => {
+        console.log(res, "res baby");
+        if (res.data.url) {
+          window.location.href = res.data.url;
+        }
+      })
+      .catch((error) => {
+        // console.error(error);
+        alert("Create Stripe checkout:" + error);
+      });
 
-    const session = await response.json();
+    // const session = await response.json();
 
-    console.log(session);
-    alert(session);
+    // console.log(session);
+    // alert(session);
 
-    session && localStorage.setItem("sessionId", session);
+    // session && localStorage.setItem("sessionId", JSON.stringify(session));
 
-    const result = stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
+    // const result = stripe.redirectToCheckout({
+    //   sessionId: session.id,
+    // });
 
-    if (result.error) {
-      console.log(result.error);
-    }
+    // if (result.error) {
+    //   console.log(result.error);
+    // }
+
+    // // const parsedId = localStorage.getItem("sessionId").id;
+    // const body2 = {
+    //   enabled_events: ["payment_intent.succeeded"],
+    // };
+
+    // await fetch("http://localhost:8800/api/checkout/webhook", {
+    //   method: "POST",
+    //   headers: headers,
+    //   body: body2,
+    // });
   };
 
-  console.log(localStorage.getItem("sessionId"), "session ma");
+  // const sessionIdParsed = JSON.parse(localStorage.getItem("sessionId"));
 
   return (
     <div className="cart-bg">
@@ -193,7 +214,7 @@ function Cart({ openCart, setCartOpen, iconRef }) {
         </div>
 
         {cart.products.map((item) => (
-          <div key={item.id} className="individual-item">
+          <div key={item._id} className="individual-item">
             <img src={item.image || art1} alt="" />
             <div className="desc">
               <p className="ellipsis">{item.title}</p>

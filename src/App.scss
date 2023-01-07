@@ -20,6 +20,8 @@ body {
   font-family: NewYork;
   background-color: #111111;
   color: white;
+  overscroll-behavior: none;
+
   p::first-letter,
   h5::first-letter {
     text-transform: capitalize !important ;
