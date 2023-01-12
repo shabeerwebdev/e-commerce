@@ -4,10 +4,14 @@ import avatar from "../assets/images/avatar.png";
 import Cart from "../pages/Home/Cart";
 import Wishlist from "../pages/Home/Wishlist";
 import { useSelector } from "react-redux";
+import ProfileShortcut from "./ProfileShortcut";
+import { ReactComponent as ArrowDown } from "../assets/icons/chevron-down.svg";
 
 function Header() {
   const headerRef = useRef();
+  
   const [openCart, setCartOpen] = useState(false);
+  const [openProfile, setProfileOpen] = useState(false);
 
   const { cart } = useSelector((state) => state);
 
@@ -22,37 +26,6 @@ function Header() {
     <div ref={headerRef} className="header">
       <img className="logo" src={logo} alt="logo" />
       <div className="header-components">
-        {/* <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9.35419 21C10.0593 21.6224 10.9856 22 12 22C13.0145 22 13.9407 21.6224 14.6458 21M18 8C18 6.4087 17.3679 4.88258 16.2427 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.8826 2.63214 7.75738 3.75736C6.63216 4.88258 6.00002 6.4087 6.00002 8C6.00002 11.0902 5.22049 13.206 4.34968 14.6054C3.61515 15.7859 3.24788 16.3761 3.26134 16.5408C3.27626 16.7231 3.31488 16.7926 3.46179 16.9016C3.59448 17 4.19261 17 5.38887 17H18.6112C19.8074 17 20.4056 17 20.5382 16.9016C20.6852 16.7926 20.7238 16.7231 20.7387 16.5408C20.7522 16.3761 20.3849 15.7859 19.6504 14.6054C18.7795 13.206 18 11.0902 18 8Z"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-        <svg
-          onClick={() => setWishOpen((prev) => !prev)}
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M11.9932 5.13581C9.9938 2.7984 6.65975 2.16964 4.15469 4.31001C1.64964 6.45038 1.29697 10.029 3.2642 12.5604C4.89982 14.6651 9.84977 19.1041 11.4721 20.5408C11.6536 20.7016 11.7444 20.7819 11.8502 20.8135C11.9426 20.8411 12.0437 20.8411 12.1361 20.8135C12.2419 20.7819 12.3327 20.7016 12.5142 20.5408C14.1365 19.1041 19.0865 14.6651 20.7221 12.5604C22.6893 10.029 22.3797 6.42787 19.8316 4.31001C17.2835 2.19216 13.9925 2.7984 11.9932 5.13581Z"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg> */}
         <div
           style={{
             display: "flex",
@@ -64,6 +37,7 @@ function Header() {
         >
           <svg
             ref={iconRef}
+            className="down"
             onClick={() => setCartOpen((prev) => !prev)}
             width="24"
             height="24"
@@ -85,24 +59,11 @@ function Header() {
         <span></span>
         <div className="avatar">
           <img src={avatar} alt="avatar" />
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M6 9L12 15L18 9"
-              stroke="white"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <ArrowDown onClick={() => setProfileOpen((p) => !p)} />
         </div>
       </div>
 
+      {openProfile && <ProfileShortcut  />}
       {openCart && (
         <Cart iconRef={iconRef} openCart={openCart} setCartOpen={setCartOpen} />
       )}

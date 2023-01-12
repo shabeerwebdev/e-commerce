@@ -47,6 +47,8 @@ const Login = () => {
       .required("This field is required!"),
   });
 
+  console.log(initialValues, "hello there");
+
   const handleLogin = (formValue) => {
     const { identifier, password } = formValue;
     setLoading(true);

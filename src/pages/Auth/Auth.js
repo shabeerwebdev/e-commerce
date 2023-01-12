@@ -199,6 +199,9 @@ function Auth() {
         onSubmit={hideRegister ? handleLogin : handleRegister}
       >
         <Form id="form" autoComplete="off" className="auth">
+          <div className="hideRegister" onClick={showEmail}>
+            {hideRegister ? "Register" : "Login"}
+          </div>
           <div className="input-wrapper">
             <svg
               ref={inputRef1svg}
@@ -349,8 +352,7 @@ function Auth() {
               />
             </svg>
           </div>
-          <div className="hideRegister" onClick={showEmail}>
-            {hideRegister ? "Register" : "Login"}
+          <div className="hideRegister2" onClick={showEmail}>
             {errMessage && <div className="alert-danger">{errMessage}</div>}
             {message && <div className="alert-success">{message}</div>}
           </div>

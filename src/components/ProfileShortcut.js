@@ -1,17 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import art1 from "../../assets/samples/painting1.jpg";
+// import art1 from "../../assets/samples/painting1.jpg";
 import { useDispatch, useSelector } from "react-redux";
-import { removeProduct } from "../../slices/cart";
+import { removeProduct } from "../slices/cart";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Cart({ openCart, setCartOpen, iconRef }) {
+function ProfileShortcut({ openCart, setCartOpen, iconRef }) {
   const closeRef = useRef();
-
   const { products } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state);
-
-  console.log(products);
 
   // const TOKEN = user.user.accessToken;
 
@@ -21,22 +18,6 @@ function Cart({ openCart, setCartOpen, iconRef }) {
   const dispatch = useDispatch();
 
   const reg = /\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g;
-
-  useEffect(() => {
-    const cartDom = closeRef.current;
-    const iconDom = closeRef.current;
-
-    const handleClick = (e) => {
-      // console.log(e.target !== cartDom);
-      // if (e.target !== cartDom && e.target === iconDom) {
-      //   setCartOpen((prev) => !prev);
-      // }
-    };
-    document.addEventListener("click", handleClick);
-    return () => {
-      document.removeEventListener("click", handleClick);
-    };
-  });
 
   const totalPrice = () => {
     const allPrice = products.map((item) => item.price);
@@ -72,12 +53,12 @@ function Cart({ openCart, setCartOpen, iconRef }) {
     <div className="cart-bg">
       <div ref={closeRef} className="cart glass">
         <div className="items">
-          <p>You've {products.length} items in cart</p>
+          <p>Welcome {user.user.username}</p>
         </div>
 
         {products.map((item) => (
           <div key={item._id} className="individual-item">
-            <img src={item.image || art1} alt="" />
+            <img src={item.image} alt="" />
             <div className="desc">
               <p className="ellipsis">{item.title}</p>
               <p className="credits">By - {item.drawnBy}</p>
@@ -119,4 +100,4 @@ function Cart({ openCart, setCartOpen, iconRef }) {
   );
 }
 
-export default Cart;
+export default ProfileShortcut;

@@ -1,21 +1,14 @@
-// import React, { useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { emptyCart } from "../slices/cart";
 
-// function Success() {
-//   const parsedId = localStorage.getItem("sessionId").id;
-//   const headers = {
-//     "Content-Type": "application/json",
-//   };
+function Success() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(emptyCart());
+  }, [dispatch]);
 
-//   useEffect(() => {
-//     parsedId &&
-//       fetch("http://localhost:8800/api/checkout/retrieve-checkout-session", {
-//         method: "POST",
-//         headers: headers,
-//         sessionId: JSON.parse(localStorage.getItem("sessionId")).id,
-//       });
-//   });
+  return <div>helo succ</div>;
+}
 
-//   return <div></div>;
-// }
-
-// export default Success;
+export default Success;

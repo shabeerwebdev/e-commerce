@@ -10,7 +10,7 @@ function Home() {
   const [scroll, setScroll] = useState(1);
   useEffect(() => {
     const scrollAmt = (e) => {
-      if (window.scrollY * 0.005 > 0.3 && window.scrollY * 0.005 < 2) {
+      if (window.scrollY * 0.005 > 0.3 && window.scrollY * 0.005 < 5) {
         console.log(window.scrollY * 0.005);
         setScroll(window.scrollY * 0.01);
       }

@@ -1,9 +1,9 @@
 import axios from "axios";
 // export const BASE_URL = "https://crowded-loincloth-crow.cyclic.app/api/";
-export const BASE_URL = "http://localhost:8800/api/";
+export const BASE_URL = "http://localhost:8800/api";
 
 const register = (username, email, password) => {
-  return axios.post(BASE_URL + "auth/register", {
+  return axios.post(BASE_URL + "/auth/register", {
     username,
     email,
     password,
@@ -12,7 +12,7 @@ const register = (username, email, password) => {
 
 const login = (username, password) => {
   return axios
-    .post(BASE_URL + "auth/login", {
+    .post(BASE_URL + "/auth/login", {
       username,
       password,
     })

@@ -19,7 +19,7 @@ const cartSlice = createSlice({
         state.total = totalArr.reduce(function (x, y) {
           return x + y;
         }, 0);
-      } else alert("Product is added");
+      }
     },
 
     removeProduct: (state, action) => {

@@ -1,7 +1,12 @@
 import React from "react";
 import art from "../assets/samples/artist1.jpg";
 
-function DetailedDialog({ dialogData, list, addToWishList }) {
+function DetailedDialog({
+  dialogData,
+  list,
+  addToWishList,
+  purchasedProducts,
+}) {
   const reg = /\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g;
   return (
     <div>
@@ -50,7 +55,11 @@ function DetailedDialog({ dialogData, list, addToWishList }) {
               </div>
               <div className="details">
                 <p className="desc">{dialogData.description}</p>
-                <button>Buy</button>
+                <button>
+                  {purchasedProducts.includes(dialogData._id)
+                    ? "Download"
+                    : "Buy"}
+                </button>
               </div>
             </div>
           </div>

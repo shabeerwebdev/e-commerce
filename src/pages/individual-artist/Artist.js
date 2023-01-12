@@ -6,30 +6,27 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct, removeProduct, emptyCart } from "../../slices/cart";
 import DetailedDialog from "../../components/DetailedDialog";
+import { useLocation } from "react-router-dom";
 
 function Artist() {
+  const { state } = useLocation();
+
   const [data, setData] = useState([]);
+  console.log(data);
 
   const [dialogData, setDialogData] = useState([]);
   const { cart } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const list = new Array(null);
-  cart.products.map((item) => list.push(item._id));
-
-  // console.log(
-  //   cart.products.map((item) => item._id),
-  //   "list"
-  // );
+  const list = cart.products.map((item) => item._id);
 
   const addToWishList = (item) => {
-    // if (list.includes(item.id)) {
-    //   dispatch(removeProduct(item));
-    // } else {
-    // }
-    dispatch(addProduct(item));
+    if (list.includes(item._id)) {
+      dispatch(removeProduct(item));
+    } else {
+      dispatch(addProduct(item));
+    }
   };
-
   const reg = /\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g;
 
   useEffect(() => {
