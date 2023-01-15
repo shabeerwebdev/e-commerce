@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../slices/auth";
+import { emptyCart } from "../slices/cart";
 
 function ProfileShortcut({ setProfileOpen, arrowSvg }) {
   const { user } = useSelector((state) => state);
@@ -28,6 +29,7 @@ function ProfileShortcut({ setProfileOpen, arrowSvg }) {
       setLoad(true);
       setTimeout(() => {
         dispatch(logout());
+        dispatch(emptyCart());
         setLoad(false);
       }, 2000);
       setTimeout(() => {
