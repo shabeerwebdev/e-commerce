@@ -1,6 +1,6 @@
 import axios from "axios";
 // export const BASE_URL = "https://crowded-loincloth-crow.cyclic.app/api/";
-export const BASE_URL = "http://localhost:8800/api";
+export const BASE_URL = "https://attractive-plum-nightshirt.cyclic.app";
 
 const register = (username, email, password) => {
   return axios.post(BASE_URL + "/auth/register", {
