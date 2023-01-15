@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProduct, removeProduct, emptyCart } from "../../slices/cart";
 import DetailedDialog from "../../components/DetailedDialog";
 import { useLocation } from "react-router-dom";
+import { BASE_URL } from "../../services/auth.service";
 
 function Artist() {
   const { state } = useLocation();
@@ -32,14 +33,11 @@ function Artist() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          process.env.REACT_APP_API_URL + "/products",
-          {
-            headers: {
-              Authorization: "Bearer " + process.env.REACT_APP_API_TOKEN,
-            },
-          }
-        );
+        const res = await axios.get(BASE_URL + "/products", {
+          headers: {
+            Authorization: "Bearer " + process.env.REACT_APP_API_TOKEN,
+          },
+        });
         setData(res.data);
       } catch (err) {
         console.log(err);

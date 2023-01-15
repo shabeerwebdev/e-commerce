@@ -66,7 +66,7 @@ function IndiArti() {
   useEffect(() => {
     if (username) {
       const res = axios
-        .get(`http://localhost:8800/api/users/find?username=${username}`)
+        .get(`${BASE_URL}/users/find?username=${username}`)
         .then((data) => setProducts(data.data.prchdPrd));
     }
   }, [username]);

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Sidebar from "../../components/Sidebar";
 import SinglePainting from "../../components/SinglePainting";
+import { BASE_URL } from "../../services/auth.service";
 
 function MyProfile() {
   const [user, setUser] = useState({});
@@ -23,7 +24,7 @@ function MyProfile() {
 
   useEffect(() => {
     const res = axios
-      .get(`http://localhost:8800/api/users/find?username=${username}`)
+      .get(`${BASE_URL}/users/find?username=${username}`)
       .then((data) => {
         setUser(data.data);
       });
