@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
 import SinglePainting from "../../components/SinglePainting";
 import { BASE_URL } from "../../services/auth.service";
@@ -31,18 +32,35 @@ function MyProfile() {
   }, [username]);
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", marginTop: "4rem" }}>
       <Sidebar filter={{ filter, setFilter }} />
-      <div className="painting-cards">
-        {user?.prchdPrd?.map((item, i) => (
-          <SinglePainting
-            key={item._id}
-            list={list}
-            item={item}
-            purchasedProducts={purchasedProducts}
-          />
-        ))}
-      </div>
+      {purchasedProducts?.length > 0 ? (
+        <div className="painting-cards">
+          {user?.prchdPrd?.map((item, i) => (
+            <SinglePainting
+              key={item._id}
+              list={list}
+              item={item}
+              purchasedProducts={purchasedProducts}
+            />
+          ))}
+        </div>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "2rem",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            width: "100%",
+          }}
+        >
+          <p>Hey looks like you have no paintings purchased. 😕</p>
+          <Link to="/paintings/all">Buy now</Link>
+        </div>
+      )}
     </div>
   );
 }

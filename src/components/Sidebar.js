@@ -7,9 +7,31 @@ import { ReactComponent as Cart } from "../assets/icons/cart.svg";
 import { ReactComponent as Paint } from "../assets/icons/paint.svg";
 import { ReactComponent as Sort } from "../assets/icons/sort.svg";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Sidebar({ filter }) {
   const { pathname } = useLocation();
+
+  const user = useSelector((state) => state.user?.user);
+
+  useEffect(() => {
+    switch (pathname) {
+      case "/artist/all":
+        svgRef1.current.style.fill = "white";
+        break;
+      case "/featured":
+        svgRef2.current.style.fill = "white";
+        break;
+      case "/paintings/all":
+        svgRef3.current.classList.add("blackk2");
+        break;
+      case "/myprofile":
+        svgRef4.current.style.fill = "white";
+        break;
+      default:
+        return;
+    }
+  }, [pathname]);
 
   const svgRef1 = useRef(null);
   const svgRef2 = useRef(null);
@@ -33,7 +55,7 @@ function Sidebar({ filter }) {
         svgRef2.current.classList.add("bgma3");
         break;
       case "3":
-        svgRef3.current.classList.add("bgma3");
+        svgRef3.current.classList.add("bgma3", "blackk");
         break;
       case "4":
         svgRef4.current.classList.add("bgma3");
@@ -55,7 +77,7 @@ function Sidebar({ filter }) {
         svgRef2.current.classList.remove("bgma3");
         break;
       case "3":
-        svgRef3.current.classList.remove("bgma3");
+        svgRef3.current.classList.remove("bgma3", "blackk");
         break;
       case "4":
         svgRef4.current.classList.remove("bgma3");
@@ -69,21 +91,21 @@ function Sidebar({ filter }) {
   };
 
   useEffect(() => {
-    spanRef1.current.addEventListener("mouseenter", handler);
-    spanRef1.current.addEventListener("mouseleave", removeHandler);
+    spanRef1?.current?.addEventListener("mouseenter", handler);
+    spanRef1?.current?.addEventListener("mouseleave", removeHandler);
 
-    spanRef2.current.addEventListener("mouseenter", handler);
-    spanRef2.current.addEventListener("mouseleave", removeHandler);
+    spanRef2?.current?.addEventListener("mouseenter", handler);
+    spanRef2?.current?.addEventListener("mouseleave", removeHandler);
 
-    spanRef3.current.addEventListener("mouseenter", handler);
-    spanRef3.current.addEventListener("mouseleave", removeHandler);
+    spanRef3?.current?.addEventListener("mouseenter", handler);
+    spanRef3?.current?.addEventListener("mouseleave", removeHandler);
 
-    spanRef4.current.addEventListener("mouseenter", handler);
-    spanRef4.current.addEventListener("mouseleave", removeHandler);
+    spanRef4?.current?.addEventListener("mouseenter", handler);
+    spanRef4?.current?.addEventListener("mouseleave", removeHandler);
 
-    spanRef5.current.addEventListener("mouseenter", handler);
-    spanRef5.current.addEventListener("mouseleave", removeHandler);
-  });
+    spanRef5?.current?.addEventListener("mouseenter", handler);
+    spanRef5?.current?.addEventListener("mouseleave", removeHandler);
+  }, []);
 
   const currRoute = pathname.split("/")[2];
 
@@ -125,10 +147,12 @@ function Sidebar({ filter }) {
         <Paint ref={svgRef3} />
         <span>All Paintings</span>
       </Link>
-      <Link id="4" ref={spanRef4} className="flexy" to="/myprofile">
-        <Cart ref={svgRef4} />
-        <span>My Purchases</span>
-      </Link>
+      {user && (
+        <Link id="4" ref={spanRef4} className="flexy" to="/myprofile">
+          <Cart ref={svgRef4} />
+          <span>My Purchases</span>
+        </Link>
+      )}
       <div className="sortBy">
         <div id="5" ref={spanRef5} className="flexy">
           <Sort ref={svgRef5} />

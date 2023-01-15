@@ -8,6 +8,7 @@ import IndiArti from "./pages/individual-artist/IndiArti";
 import AllArtists from "./pages/individual-artist/AllArtists";
 import MyProfile from "./pages/Auth/MyProfile";
 import Success from "./pages/Success";
+import AllPaintings from "./pages/individual-artist/Artist";
 
 function App() {
   // console.log(process.env.REACT_APP_API_TOKEN, process.env.REACT_APP_API_URL);
@@ -20,7 +21,7 @@ function App() {
         <Route path="/auth" element={<Auth />} />
         <Route path="/success" element={<Success />} />
         <Route path="/myprofile" element={<MyProfile />} />
-        <Route path="/paintings/all" element={<Artist />} />
+        <Route path="/paintings/all" element={<AllPaintings />} />
         <Route path="/artist/all" element={<AllArtists />} />
         <Route path="/artist/:name" element={<IndiArti />} />
         <Route path="/indi" element={<IndiArti />} />

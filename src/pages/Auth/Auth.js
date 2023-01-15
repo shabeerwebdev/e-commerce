@@ -164,7 +164,7 @@ function Auth() {
       .then(() => {
         setLoading(false);
         setTimeout(() => {
-          navigate("/myprofile");
+          navigate(-1);
         }, 1500);
         // window.location.reload();
       })

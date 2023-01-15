@@ -12,7 +12,7 @@ import { ReactComponent as Starsvg } from "../../assets/icons/star.svg";
 function Artists() {
   const navigate = useNavigate();
   const [artists, setArtists] = useState([]);
-  console.log(artists);
+
   useEffect(() => {
     const url = `${BASE_URL}/users?page=&sort=soldCount,desc&search=&limit=4&isArtist=true`;
     const res = async () =>
