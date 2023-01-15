@@ -49,7 +49,7 @@ function Home() {
           background: `rgb(17, 17, 17, ${0.3 * scroll})`,
           width: "100%",
           minHeight: `100vh`,
-          marginTop: "-2.5rem",
+          marginTop: "-6rem",
         }}
       ></div>
       <Artists />

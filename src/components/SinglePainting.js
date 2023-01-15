@@ -10,12 +10,22 @@ function SinglePainting({
   addToWishList,
   list,
   purchasedProducts,
+  setShowDialog,
 }) {
   const reg = /\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g;
+
+  const { user } = useSelector((state) => state.user);
+
+  const confirmUser = (item) => {
+    user ? addToWishList(item) : setShowDialog(true);
+  };
   return (
-    <div onClick={() => openDialog(item)} className="single-card">
+    <div className="single-card">
       <div className="card-img">
-        <img src={item.image} alt="" />
+        <img onClick={() => openDialog(item)} src={item.image} alt="" />
+        <p onClick={() => openDialog(item)} className="featured-sec-center">
+          Click to view
+        </p>
       </div>
       <div className="details-container">
         <div className="details">
@@ -23,7 +33,9 @@ function SinglePainting({
           <h5>₹ {item.price.toFixed(0).toString().replace(reg, ",")}</h5>
         </div>
         <div className="details">
-          <p className="desc ellipsis">{item.description}</p>
+          <p onClick={() => openDialog(item)} className="desc ellipsis">
+            {item.description}
+          </p>
           <button>
             {purchasedProducts.includes(item._id) ? "Download" : "Buy"}
           </button>
@@ -33,7 +45,7 @@ function SinglePainting({
       <div className="abs">
         <p>Sold {item.soldCount || 0} times</p>
         {!purchasedProducts.includes(item._id) && (
-          <div onClick={() => addToWishList(item)} className="svg-wrapper">
+          <div onClick={() => confirmUser(item)} className="svg-wrapper">
             <svg
               title="Add to wishlist"
               // ref={newRef}

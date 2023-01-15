@@ -165,7 +165,7 @@ function Auth() {
       .then(() => {
         setLoading(false);
         setTimeout(() => {
-          navigate("/profile");
+          navigate("/myprofile");
         }, 1500);
         // window.location.reload();
       })
@@ -311,7 +311,7 @@ function Auth() {
           <div className="login-action">
             <button type="submit">
               {loading ? (
-                <div className="dots-7"></div>
+                <div>Loading...</div>
               ) : hideRegister ? (
                 <p>Login</p>
               ) : (

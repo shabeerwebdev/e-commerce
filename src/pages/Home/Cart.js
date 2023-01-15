@@ -1,40 +1,30 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import art1 from "../../assets/samples/painting1.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { removeProduct } from "../../slices/cart";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Cart({ openCart, setCartOpen, iconRef }) {
-  const closeRef = useRef();
-
+function Cart({ openCart, setCartOpen, iconRef, setShowDialog }) {
+  const [load, setLoad] = useState(false);
   const { products } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state);
-
-  console.log(products);
-
-  // const TOKEN = user.user.accessToken;
-
-  const { email } = user.user || "";
-
-  console.log(email, "user");
   const dispatch = useDispatch();
 
   const reg = /\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g;
 
-  useEffect(() => {
-    const cartDom = closeRef.current;
-    const iconDom = closeRef.current;
+  const closeRef = useRef(null);
 
-    const handleClick = (e) => {
-      // console.log(e.target !== cartDom);
-      // if (e.target !== cartDom && e.target === iconDom) {
-      //   setCartOpen((prev) => !prev);
-      // }
+  useEffect(() => {
+    const handler = (e) => {
+      if (!closeRef.current.contains(e.target)) {
+        if (e.target === iconRef.current) return;
+        else setCartOpen(false);
+      }
     };
-    document.addEventListener("click", handleClick);
+    document.addEventListener("mousedown", handler);
     return () => {
-      document.removeEventListener("click", handleClick);
+      document.removeEventListener("mousedown", handler);
     };
   });
 
@@ -42,8 +32,12 @@ function Cart({ openCart, setCartOpen, iconRef }) {
     const allPrice = products.map((item) => item.price);
     return allPrice.reduce((i, j) => i + j, 0);
   };
+
   const navigate = useNavigate();
+
   const makePayment = async (e) => {
+    if (totalPrice() <= 0) return;
+    setLoad(true);
     if (user.user) {
       const res = await axios
         .post("http://localhost:8800/api/checkout/create-checkout-session", {
@@ -52,7 +46,7 @@ function Cart({ openCart, setCartOpen, iconRef }) {
           email: user.user.email,
         })
         .then((res) => {
-          alert(res.data.payment_status);
+          // alert(res.data.payment_status);
           if (res.data.url) {
             window.location.href = res.data.url;
           }
@@ -60,11 +54,13 @@ function Cart({ openCart, setCartOpen, iconRef }) {
         .catch((error) => {
           alert("Create Stripe checkout:" + error);
         });
-
       console.log(res, "response mame");
     } else {
-      alert("login");
-      navigate("/auth");
+      setLoad(false);
+      // alert("login");
+      setCartOpen(false);
+      setShowDialog(true);
+      // navigate("/auth");
     }
   };
 
@@ -108,10 +104,10 @@ function Cart({ openCart, setCartOpen, iconRef }) {
         ))}
 
         <div className="checkout">
-          {/* Checkout {"    "} ₹34 */}
-          {/* <div className="checkout-btn">Cancel</div> */}
           <div onClick={makePayment} className="checkout-btn">
-            ₹ {totalPrice().toString().replace(reg, ",")}
+            {load
+              ? "Loading..."
+              : "₹" + totalPrice().toString().replace(reg, ",")}
           </div>
         </div>
       </div>

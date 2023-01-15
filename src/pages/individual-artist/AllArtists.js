@@ -40,7 +40,7 @@ function AllArtists() {
     });
   };
   return (
-    <div style={{ display: "flex", marginTop: "5rem" }}>
+    <div style={{ display: "flex", marginTop: "1rem" }}>
       <Sidebar filter={{ filter, setFilter }} />
       <div className="artists-list">
         <div className="artists-list-imgs">

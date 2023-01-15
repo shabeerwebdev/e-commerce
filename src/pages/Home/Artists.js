@@ -88,7 +88,10 @@ function Artists() {
                 className="artist"
               >
                 <div>{giveStars(item.soldCount)}</div>
-                <img src={item.prfPic} alt="" />
+                <div className="featured-sec-div">
+                  <img src={item.prfPic} alt="" />
+                  <p className="featured-sec-center">Explore</p>
+                </div>
                 <p>{item.username}</p>
                 <span>{item.soldCount || 0} sold</span>
               </div>

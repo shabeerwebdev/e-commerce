@@ -6,26 +6,44 @@ import Wishlist from "../pages/Home/Wishlist";
 import { useSelector } from "react-redux";
 import ProfileShortcut from "./ProfileShortcut";
 import { ReactComponent as ArrowDown } from "../assets/icons/chevron-down.svg";
+import DialogBox from "./DialogBox";
 
 function Header() {
   const headerRef = useRef();
-  
+  const arrowSvg = useRef();
+
+  const [showDialog, setShowDialog] = useState(false);
   const [openCart, setCartOpen] = useState(false);
   const [openProfile, setProfileOpen] = useState(false);
 
   const { cart } = useSelector((state) => state);
 
   useEffect(() => {
-    const height = headerRef.current?.clientHeight;
-    localStorage.setItem("headerHeight", height);
-  });
+    // const height = headerRef.current?.clientHeight;
+    // localStorage.setItem("headerHeight", height);
+    if (showDialog || openCart || openProfile) {
+      window.onscroll = function () {
+        window.scrollTo("auto", "auto");
+      };
+    } else {
+      window.onscroll = "none";
+    }
+  }, [showDialog, openCart, openProfile]);
 
   const iconRef = useRef();
 
   return (
     <div ref={headerRef} className="header">
       <img className="logo" src={logo} alt="logo" />
-      <div className="header-components">
+      <div
+        className="header-components glass2"
+        style={{
+          border: 0,
+          padding: "0 1rem",
+          borderRadius: "1rem",
+          backgroundColor: "#00000092",
+        }}
+      >
         <div
           style={{
             display: "flex",
@@ -59,14 +77,27 @@ function Header() {
         <span></span>
         <div className="avatar">
           <img src={avatar} alt="avatar" />
-          <ArrowDown onClick={() => setProfileOpen((p) => !p)} />
+          <ArrowDown
+            ref={arrowSvg}
+            onClick={() => setProfileOpen((openProfile) => !openProfile)}
+          />
         </div>
       </div>
 
-      {openProfile && <ProfileShortcut  />}
-      {openCart && (
-        <Cart iconRef={iconRef} openCart={openCart} setCartOpen={setCartOpen} />
+      {openProfile && (
+        <ProfileShortcut arrowSvg={arrowSvg} setProfileOpen={setProfileOpen} />
       )}
+
+      {openCart && (
+        <Cart
+          iconRef={iconRef}
+          setShowDialog={setShowDialog}
+          openCart={openCart}
+          setCartOpen={setCartOpen}
+        />
+      )}
+
+      {showDialog && <DialogBox setShowDialog={setShowDialog} />}
     </div>
   );
 }

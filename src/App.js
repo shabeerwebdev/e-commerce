@@ -14,13 +14,13 @@ function App() {
   const { pathname } = useLocation();
   return (
     <div>
-      {pathname !== "/auth" && <Header />}
+      {pathname !== ("/auth" || "/*") && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/success" element={<Success />} />
         <Route path="/myprofile" element={<MyProfile />} />
-        <Route path="/artist" element={<Artist />} />
+        <Route path="/paintings/all" element={<Artist />} />
         <Route path="/artist/all" element={<AllArtists />} />
         <Route path="/artist/:name" element={<IndiArti />} />
         <Route path="/indi" element={<IndiArti />} />

@@ -58,15 +58,6 @@ function Artist() {
       <Sidebar />
 
       <div className="artist-sec">
-        <div className="porfile-card">
-          <img src={profileImg} alt="" />
-          <div className="details">
-            <p> Abishek</p>
-            <p> Owns 100 paintings</p>
-            <p> Sold 38 paintings</p>
-          </div>
-        </div>
-
         <div className="painting-cards">
           {data &&
             data.map((item, i) => (

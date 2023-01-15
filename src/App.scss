@@ -7,7 +7,21 @@
 @font-face {
   font-family: Querist;
   src: url("./assets/fonts/Querist-Regular.otf") format("opentype");
+  // Lilyane - Personal Use
 }
+
+@font-face {
+  font-family: Lilyane;
+  src: url("./assets/fonts/Lilyane\ -\ Personal\ Use.otf") format("opentype");
+  // Lilyane - Personal Use
+}
+
+@font-face {
+  font-family: GatterSans;
+  src: url("./assets/fonts/GatterSans-Regular.otf") format("opentype");
+  // Lilyane - Personal Use
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -17,7 +31,7 @@
 
 body {
   // margin: 1rem 5rem;
-  font-family: NewYork;
+  font-family: Lilyane;
   background-color: #111111;
   color: white;
   overscroll-behavior: none;
@@ -28,7 +42,7 @@ body {
     text-transform: capitalize !important ;
   }
   input::-webkit-input-placeholder {
-    font-family: "Montserrat", sans-serif;
+    font-family: GatterSans;
   }
 }
 
@@ -43,7 +57,7 @@ body {
 
 p,
 button {
-  font-family: Querist;
+  font-family: Lilyane;
 }
 
 .head {
@@ -58,8 +72,8 @@ button {
   justify-content: space-between;
   padding: 0 5rem;
   position: sticky;
-  // margin-top: 3rem;
   top: 3rem;
+  margin-top: 3rem;
   z-index: 999;
 
   &-components {
@@ -68,7 +82,7 @@ button {
     gap: 2rem;
     z-index: 999;
     color: white;
-    font-family: "Montserrat", sans-serif;
+    font-family: GatterSans;
     svg {
       stroke: white !important;
       transition: 0.1s ease;
@@ -78,7 +92,7 @@ button {
       }
 
       &:hover {
-        stroke: red !important;
+        // stroke: #0028db !important;
         cursor: pointer;
       }
     }
@@ -241,7 +255,7 @@ button {
   // margin-top: 7rem;
   padding: 5rem;
   padding-bottom: 7rem;
-  // padding-top: 0;
+  padding-top: 2rem;
   .wrapp {
     display: flex;
     gap: 2rem;
@@ -266,12 +280,25 @@ button {
       flex-direction: column;
       gap: 0.4rem;
       align-items: center;
+
+      .featured-sec-div {
+        cursor: pointer;
+        border-radius: 50%;
+        .featured-sec-center {
+          font-size: 0.7rem;
+          padding: 0.3rem 0.6rem;
+        }
+        img {
+          width: 10rem;
+          height: 10rem;
+        }
+      }
     }
     p {
       font-size: 1.5rem;
     }
     span {
-      font-family: "Montserrat", sans-serif;
+      font-family: GatterSans;
       font-size: 0.8rem;
       background-color: #d31e27;
       padding: 0.1rem 0.5rem;
@@ -279,7 +306,7 @@ button {
     }
     svg {
       fill: #d7fc70;
-      stroke: #a0a0a0;
+      stroke: #d7fc70;
     }
     img,
     .img {
@@ -288,7 +315,7 @@ button {
       object-fit: cover;
       object-position: top;
       border-radius: 50%;
-      border: 1px solid white;
+      border: 2px solid #bbbbbb;
       padding: 0.4rem;
 
       // margin-bottom: 1rem;
@@ -310,8 +337,8 @@ button {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 20rem);
   overflow: hidden;
-  gap: 1.5rem;
-  // margin: 4rem -4rem;
+  gap: 0.1rem;
+  padding: 0rem !important;
   background-color: #111111;
   padding: 2rem 5rem;
 
@@ -330,54 +357,56 @@ button {
     grid-row: 2/3;
     grid-column: 3/5;
   }
+}
+.featured-sec-div {
+  position: relative;
+  overflow: hidden;
 
-  .featured-sec-div {
-    position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #e5e5e5;
+    opacity: 0;
+    transition: 0.3s ease all;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 30%;
     overflow: hidden;
+    transition: 0.3s ease all;
+  }
 
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: #e5e5e5;
-      opacity: 0;
-      transition: 0.2s ease all;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 30%;
-      overflow: hidden;
-      transition: ease 0.4s;
-      border-radius: 0.4rem;
-    }
-
-    &:hover {
-      cursor: pointer;
-      .featured-sec-center {
-        display: block;
-      }
-
-      img {
-        transform: scale(1.01);
-      }
-    }
+  &:hover {
     .featured-sec-center {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #d7fc70;
-      color: black;
-      padding: 0.4rem 0.8rem;
-      font-size: 0.8rem;
+      display: block;
+    }
+
+    img {
+      transform: scale(1.1);
     }
   }
+}
+.featured-sec-center {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #d7fc70;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  z-index: 99;
+  font-family: GatterSans;
+  font-weight: 600;
+  color: black;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.8rem;
 }
 
 //__________featured section end__________
@@ -393,7 +422,7 @@ button {
   background-color: rgba(0, 0, 0, 0);
   // color: white;
   border-radius: 1px;
-  font-family: "Montserrat", sans-serif;
+  font-family: GatterSans;
   font-weight: 500;
   font-size: 1.1rem;
 }
@@ -428,7 +457,7 @@ button {
   // margin-bottom: 4rem;
   background-color: #111111;
   p {
-    font-family: "Montserrat", sans-serif;
+    font-family: GatterSans;
   }
 
   div:nth-child(1) {
@@ -463,7 +492,7 @@ button {
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 3.4rem;
+  gap: 2rem;
   width: 20rem;
   min-width: 20rem;
   padding-left: 5rem;
@@ -471,40 +500,54 @@ button {
   align-self: flex-start;
   // margin-top: 3rem;
   top: 8rem !important;
-  a {
-    color: white;
-    font-size: 2rem;
+
+  .flexy {
+    color: #dbdbdb;
+    font-size: 1.1rem;
+    font-family: GatterSans;
+    text-decoration: none;
+    display: flex;
+    gap: 1rem;
+    // height: 2rem;
+    svg {
+      stroke: white;
+      width: 1.4rem !important;
+      stroke-width: 1.5;
+    }
+    transition: ease-in-out 0.1s;
   }
   .sortBy {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 10rem;
+    width: 12rem;
     .sortCat {
       display: flex;
       align-items: center;
       gap: 1rem;
-      font-family: "Montserrat", sans-serif;
+      font-family: GatterSans;
+      margin-left: 2rem;
       span {
         margin-left: auto;
-      }
-      svg {
-        cursor: pointer;
-        width: 1rem;
-        height: 1rem;
-        stroke: rgba(255, 255, 255, 0.338);
-        transition: ease 0.1s;
-        &:hover {
+        font-family: GatterSans;
+        svg {
+          cursor: pointer;
+          width: 1rem;
+          height: 1rem;
+          stroke: rgba(255, 255, 255, 0.338);
           transition: ease 0.1s;
-          stroke: rgba(255, 255, 255);
-          // transform: translateY(-0.3rem);
-          transform: scale(1.2);
+          &:hover {
+            transition: ease 0.1s;
+            stroke: rgba(255, 255, 255);
+            // transform: translateY(-0.3rem);
+            transform: scale(1.2);
+          }
         }
-      }
 
-      span {
-        float: right;
-        color: #c9c9c984;
+        span {
+          float: right;
+          color: #c9c9c984;
+        }
       }
     }
   }
@@ -515,163 +558,232 @@ button {
 .artist-sec {
   flex-grow: 1;
   padding: 5rem;
-  .painting-cards {
-    // display: grid;
-    // grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--card_width), 1fr));
-    grid-auto-rows: var(--row_increment);
-    justify-content: center;
-
-    .single-card {
-      width: 100%;
-      position: relative;
-      background: rgba(104, 104, 104, 0.2);
-      border-radius: 1rem;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, 0.11);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-      animation-name: scroll2;
-      animation-duration: 1s;
-      animation-timing-function: cubic-bezier(1, 0, 0, 1);
-      width: 100%;
-
-      &:nth-child(3n) {
-        grid-row-end: span var(--card_medium);
-      }
-      &:nth-child(3n-1) {
-        grid-row-end: span var(--card_small);
-      }
-      &:nth-child(3n-2) {
-        grid-row-end: span var(--card_large);
-      }
-
-      .details-container {
-        // background-color: red;
-        padding: 1.1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        h5 {
-          font-size: 1rem;
-          font-family: "Montserrat", sans-serif;
-        }
-        p {
-          font-family: "Montserrat", sans-serif;
-          font-size: 0.9rem;
-          color: gray;
-        }
-      }
-      .details {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-
-        button {
-          background-color: rgb(1, 229, 1);
-          background-color: #0028db;
-          width: fit-content;
-          padding: 0.5rem 0.9rem;
-          border-radius: 1rem;
-          color: rgb(255, 255, 255);
-          border: 0;
-          font-family: "Montserrat", sans-serif;
-          font-size: 0.8rem;
-        }
-      }
-      .card-img {
-        overflow: hidden;
-        img {
-          object-position: top;
-          height: 100%;
-          min-width: 100%;
-          object-fit: cover;
-          border-radius: 1rem 1rem 0 0;
-        }
-      }
-
-      .abs {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 0.4rem;
-
-        .svg-wrapper {
-          background: rgba(0, 0, 0, 0.5);
-          border-radius: 50%;
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-          backdrop-filter: blur(5px);
-          -webkit-backdrop-filter: blur(5px);
-          display: grid;
-          place-items: center;
-          svg {
-            /* From https://css.glass */
-
-            stroke: white;
-            padding: 0.6rem;
-            width: 2.3rem;
-            height: 2.3rem;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: ease 0.1s;
-
-            &:hover {
-              transition: ease 0.1s;
-              transform: scale(1.1);
-            }
-          }
-        }
-        p {
-          font-size: 0.7rem;
-          background-color: #d31e27;
-          padding: 0.3rem 1rem;
-          border-radius: 1rem;
-          font-family: "Montserrat", sans-serif;
-          font-weight: 500;
-        }
-      }
-    }
-  }
+  padding-top: 2rem;
 
   .porfile-card {
     /* From https://css.glass */
-    background: rgba(104, 104, 104, 0.2);
-    border-radius: 1rem;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-
+    // background: rgba(104, 104, 104, 0.2);
+    // border-radius: 1rem;
+    // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    // backdrop-filter: blur(5px);
+    // -webkit-backdrop-filter: blur(5px);
+    // border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     padding: 2rem;
-    text-align: right;
+    text-align: center;
+    background-image: url("./assets/images/avatar.png");
+    // background-size: cover;
+    max-height: 12rem;
+    min-height: 12rem;
+    margin-bottom: 8rem;
+    // background-size: 300px 100px;
+    border-radius: 1rem;
+
+    .abs {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      background-color: red;
+      p {
+        font-family: GatterSans !important;
+        text-align: right;
+        font-size: 0.75rem;
+        font-weight: 600;
+        &:nth-child(1) {
+          margin-bottom: 0.2rem;
+        }
+      }
+    }
+
     img {
       // border-radius: 1rem 3rem 3rem 1rem;
       width: 12rem;
       height: 12rem;
+      min-width: 12rem;
+      min-height: 12rem;
+      max-width: 12rem;
+      max-height: 12rem;
+      object-position: top;
       object-fit: cover;
       border-radius: 50%;
+      margin: auto;
+      // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border: 5px solid white;
     }
     .details {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0.5rem;
       p {
-        font-size: 3rem;
-        &:nth-child(2),
-        &:nth-child(3) {
-          font-size: 1.1rem;
+        color: rgb(252, 250, 250);
+        text-align: left;
+        font-family: GatterSans !important;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.painting-cards {
+  // display: grid;
+  // grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--card_width), 1fr));
+  grid-auto-rows: var(--row_increment);
+  justify-content: center;
+
+  .single-card {
+    width: 100%;
+    position: relative;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    animation-name: scroll2;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    width: 100%;
+
+    &:nth-child(3n) {
+      grid-row-end: span var(--card_medium);
+    }
+    &:nth-child(3n-1) {
+      grid-row-end: span var(--card_small);
+    }
+    &:nth-child(3n-2) {
+      grid-row-end: span var(--card_large);
+    }
+
+    .details-container {
+      // background-color: red;
+      padding: 1rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      h5 {
+        font-size: 1rem;
+        font-family: GatterSans;
+      }
+      p {
+        font-family: GatterSans;
+        font-size: 0.9rem;
+        color: gray;
+      }
+    }
+    .details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+
+      button {
+        background-color: rgb(1, 229, 1);
+        background-color: #0028db;
+        width: fit-content;
+        padding: 0.5rem 0.9rem;
+        border-radius: 1rem;
+        color: rgb(255, 255, 255);
+        border: 0;
+        font-family: GatterSans;
+        font-size: 0.8rem;
+        &:hover {
+          background-color: #0022ba;
         }
+      }
+    }
+    .card-img {
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #e5e5e5;
+        opacity: 0;
+        transition: 0.7s ease all;
+      }
+      img {
+        overflow: hidden;
+        transition: 0.7s ease all;
+        object-position: top;
+        height: 100%;
+        min-width: 100%;
+        object-fit: cover;
+      }
+
+      &:hover {
+        .featured-sec-center {
+          display: block;
+        }
+
+        img {
+          transform: scale(1.08);
+        }
+      }
+    }
+
+    .abs {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.4rem;
+
+      .svg-wrapper {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        display: grid;
+        place-items: center;
+        svg {
+          /* From https://css.glass */
+
+          stroke: white;
+          padding: 0.6rem;
+          width: 2.3rem;
+          height: 2.3rem;
+          border-radius: 50%;
+          cursor: pointer;
+          transition: ease 0.1s;
+
+          &:hover {
+            transition: ease 0.1s;
+            transform: scale(1.1);
+          }
+        }
+      }
+      p {
+        font-size: 0.7rem;
+        background-color: #d31e27;
+        padding: 0.3rem 1rem;
+        border-radius: 1rem;
+        font-family: GatterSans;
+        font-weight: 500;
       }
     }
   }
@@ -679,6 +791,7 @@ button {
 //___cart_______artist porfile end__________
 
 //_______cart section start__________
+
 .cart-bg {
   position: fixed;
   right: 0;
@@ -717,7 +830,7 @@ button {
   }
 
   p {
-    font-family: "Montserrat", sans-serif;
+    font-family: GatterSans;
   }
 
   .items {
@@ -731,7 +844,7 @@ button {
       width: fit-content;
       padding: 0.3rem;
       font-size: 0.8rem;
-      font-family: "Montserrat", sans-serif;
+      font-family: GatterSans;
     }
   }
   .total {
@@ -742,7 +855,7 @@ button {
     border-top: 1px solid rgba(255, 255, 255, 0.281);
 
     p {
-      font-family: "Montserrat", sans-serif;
+      font-family: GatterSans;
     }
   }
   .checkout {
@@ -750,7 +863,7 @@ button {
     bottom: 0;
     display: none;
     padding: 1rem 1.3rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: GatterSans;
     border-top: 1px solid rgba(255, 255, 255, 0.309);
     // background-color: #d31e27;
     color: #f9faf7;
@@ -761,11 +874,15 @@ button {
     display: flex;
     .checkout-btn {
       margin-left: auto;
-      background-color: rgb(0, 102, 255);
-      padding: 0.4rem 0.5rem;
-      border-radius: 0.2rem;
-      font-size: 0.9rem;
+      background-color: #0028db;
       width: fit-content;
+      padding: 1rem 1.3rem;
+      border-radius: 4rem;
+      color: white;
+      border: 0;
+      font-family: GatterSans;
+      font-size: 0.8rem;
+      cursor: pointer;
     }
   }
   .individual-item {
@@ -826,7 +943,7 @@ button {
 }
 
 .bought {
-  font-family: "Montserrat", sans-serif;
+  font-family: GatterSans;
   font-size: 0.7rem;
   background-color: #d31e27;
   padding: 0.1rem 0.3rem;
@@ -1004,6 +1121,7 @@ button {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: pointer;
 }
 
 //_______auth start__________
@@ -1030,7 +1148,7 @@ button {
   padding: 2rem;
   color: black;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: GatterSans;
 
   background: #ffffff;
   border-radius: 2rem;
@@ -1039,11 +1157,12 @@ button {
 
   .hideRegister,
   .hideRegister2 {
+    height: 0;
     color: #2950ff;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 600;
-    font-family: "Montserrat", sans-serif;
+    font-family: GatterSans;
   }
   .hideRegister {
     margin-left: auto;
@@ -1077,7 +1196,7 @@ button {
       outline: 0;
       padding: 1.5rem 3.3rem;
       p {
-        font-family: "Montserrat", sans-serif;
+        font-family: GatterSans;
       }
 
       &:hover {
@@ -1117,7 +1236,7 @@ button {
       flex-basis: 100%;
       height: 0;
       text-align: left;
-      font-family: "Montserrat", sans-serif;
+      font-family: GatterSans;
     }
 
     svg {
@@ -1162,6 +1281,18 @@ button {
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+}
+
+.bgma3 {
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  fill: white;
 }
 
 .bgma2 {
@@ -1476,7 +1607,7 @@ button {
   font-size: 0.9rem;
   font-weight: 600;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: GatterSans;
   width: fit-content;
 }
 .alert-danger {
@@ -1523,10 +1654,10 @@ button {
       gap: 2rem;
       h5 {
         font-size: 1rem;
-        font-family: "Montserrat", sans-serif;
+        font-family: GatterSans;
       }
       p {
-        font-family: "Montserrat", sans-serif;
+        font-family: GatterSans;
         font-size: 0.9rem;
         color: gray;
       }
@@ -1545,8 +1676,12 @@ button {
         border-radius: 2rem;
         color: white;
         border: 0;
-        font-family: "Montserrat", sans-serif;
+        font-family: GatterSans;
         font-size: 0.8rem;
+        &:hover {
+          background-color: #0022ba;
+          cursor: pointer;
+        }
       }
     }
     .card-img {
@@ -1591,7 +1726,7 @@ button {
         background-color: #d31e27;
         padding: 0.3rem 1rem;
         border-radius: 1rem;
-        font-family: "Montserrat", sans-serif;
+        font-family: GatterSans;
         font-weight: 500;
       }
     }
@@ -1599,3 +1734,46 @@ button {
 }
 
 //_________DetailedDialog end _______
+
+.profile {
+  .items {
+    padding: 1rem;
+    p {
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: left;
+      margin: 0;
+      width: 100%;
+      padding: 1rem 0;
+      &:nth-child(1) {
+        padding-top: 0;
+        // border-bottom: 1px solid rgb(72, 72, 72);
+      }
+    }
+    button {
+      background-color: rgb(1, 229, 1);
+      background-color: #0028db;
+      width: fit-content;
+      padding: 0.5rem 0.9rem;
+      border-radius: 1rem;
+      color: rgb(255, 255, 255);
+      border: 0;
+      font-family: GatterSans;
+      font-size: 0.8rem;
+      margin: 1rem 0 0 0;
+      cursor: pointer;
+      &:hover {
+        background-color: #0022ba;
+      }
+    }
+  }
+}
+
+// dialog box
+
+.dialogbox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

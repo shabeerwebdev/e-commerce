@@ -1,22 +1,28 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import DetailedDialog from "../../components/DetailedDialog";
 import Sidebar from "../../components/Sidebar";
 import SinglePainting from "../../components/SinglePainting";
 import { BASE_URL } from "../../services/auth.service";
 import { addProduct, removeProduct } from "../../slices/cart";
+import { ReactComponent as Starsvg } from "../../assets/icons/star.svg";
+import DialogBox from "../../components/DialogBox";
 
 function IndiArti() {
   const { name } = useParams();
-  const { state } = useLocation();
+  const { pathname } = useLocation();
+  const username = useSelector((state) => state?.user?.user?.username);
+  const dispatch = useDispatch();
+  console.log(username);
 
   const [data, setData] = useState([]);
-  console.log(data);
+  const [user, setUser] = useState([]);
+
   const [dialogData, setDialogData] = useState([]);
+  const [showDialog, setShowDialog] = useState(false);
   const { cart } = useSelector((state) => state);
-  const dispatch = useDispatch();
 
   const list = cart.products.map((item) => item._id);
 
@@ -43,6 +49,14 @@ function IndiArti() {
     res();
   }, [name, filter]);
 
+  useEffect(() => {
+    const url = `${BASE_URL}/users/find?username=${pathname.split("/")[2]}`;
+
+    const res = async () =>
+      await axios.get(url).then((data) => setUser(data.data));
+    res();
+  }, [pathname]);
+
   const openDialog = (item) => {
     setDialogData(item);
   };
@@ -50,23 +64,66 @@ function IndiArti() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const res = axios
-      .get("http://localhost:8800/api/users/find?username=balu")
-      .then((data) => setProducts(data.data.prchdPrd));
-  }, []);
+    if (username) {
+      const res = axios
+        .get(`http://localhost:8800/api/users/find?username=${username}`)
+        .then((data) => setProducts(data.data.prchdPrd));
+    }
+  }, [username]);
 
   const purchasedProducts = products.map((item) => item._id);
+
+  const giveStars = (count) => {
+    if (!count) {
+      return (
+        <div>
+          <Starsvg style={{ fill: "none" }} />
+          <Starsvg style={{ fill: "none" }} />
+          <Starsvg style={{ fill: "none" }} />
+        </div>
+      );
+    } else if (count >= 10) {
+      return (
+        <div>
+          <Starsvg style={{ stroke: "#d7fc70" }} />
+          <Starsvg style={{ stroke: "#d7fc70" }} />
+          <Starsvg style={{ stroke: "#d7fc70" }} />
+        </div>
+      );
+    } else if (count >= 7) {
+      return (
+        <div>
+          <Starsvg style={{ stroke: "#d7fc70" }} />
+          <Starsvg style={{ stroke: "#d7fc70" }} />
+          <Starsvg style={{ fill: "none" }} />
+        </div>
+      );
+    } else if (count >= 3) {
+      return (
+        <div>
+          <Starsvg style={{ stroke: "#d7fc70" }} />
+          <Starsvg style={{ fill: "none" }} />
+          <Starsvg style={{ fill: "none" }} />
+        </div>
+      );
+    }
+  };
 
   return (
     <div style={{ display: "flex" }}>
       <Sidebar filter={{ filter, setFilter }} />
       <div className="artist-sec">
         <div className="porfile-card">
-          <img src={state.item.prfPic} alt="" />
+          <img src={user.prfPic} alt="" />
+
           <div className="details">
-            <p>{state.item.username}</p>
-            <p> Owns 100 paintings</p>
-            <p> Sold 38 paintings</p>
+            <p>{user.username}</p>
+            <div>{giveStars(30)}</div>
+          </div>
+
+          <div className="abs">
+            <p>Owns 100 paintings</p>
+            <p>Sold {user.soldCount || 0} paintings</p>
           </div>
         </div>
 
@@ -80,6 +137,7 @@ function IndiArti() {
                 openDialog={openDialog}
                 item={item}
                 purchasedProducts={purchasedProducts}
+                setShowDialog={setShowDialog}
               />
             ))
           ) : (
@@ -89,10 +147,13 @@ function IndiArti() {
 
         <DetailedDialog
           dialogData={dialogData}
+          setDialogData={setDialogData}
           addToWishList={addToWishList}
           list={list}
           purchasedProducts={purchasedProducts}
         />
+
+        {showDialog && <DialogBox setShowDialog={setShowDialog} />}
       </div>
     </div>
   );
