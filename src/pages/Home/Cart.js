@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeProduct } from "../../slices/cart";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../services/auth.service";
 
 function Cart({ openCart, setCartOpen, iconRef, setShowDialog }) {
   const [load, setLoad] = useState(false);
@@ -40,7 +41,7 @@ function Cart({ openCart, setCartOpen, iconRef, setShowDialog }) {
     setLoad(true);
     if (user.user) {
       const res = await axios
-        .post("http://localhost:8800/api/checkout/create-checkout-session", {
+        .post(`${BASE_URL}/checkout/create-checkout-session`, {
           products,
           userId: user.user._id,
           email: user.user.email,
