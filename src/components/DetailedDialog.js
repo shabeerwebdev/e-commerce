@@ -10,13 +10,14 @@ function DetailedDialog({
 }) {
   const reg = /\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g;
 
+  const dialogRef = useRef(null);
+
   const closeRef = useRef(null);
   useEffect(() => {
     const handler = (e) => {
-      if (dialogData.length >= 0)
-        if (!closeRef.current?.contains(e.target)) {
-          setDialogData([]);
-        }
+      if (!closeRef.current?.contains(e.target)) {
+        setDialogData([]);
+      }
     };
     document.addEventListener("mousedown", handler);
     return () => {
@@ -26,8 +27,8 @@ function DetailedDialog({
 
   return (
     <div>
-      {dialogData.length !== 0 && (
-        <div className="detailed glass2">
+      {Object.keys(dialogData).length !== 0 && (
+        <div ref={dialogRef} className="detailed glass2">
           <div ref={closeRef} className="single-card">
             <div className="card-img">
               <img src={dialogData.image || art} alt="" />

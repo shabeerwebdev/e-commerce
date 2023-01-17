@@ -122,6 +122,8 @@ function Auth() {
     password: "",
   };
 
+  const regex = "^[a-zA-Z]*$";
+
   const validationSchema = Yup.object().shape({
     username: Yup.string()
       .test(
@@ -177,7 +179,7 @@ function Auth() {
   const handleRegister = (formValue) => {
     const { username, email, password } = formValue;
     setSuccessful(false);
-    dispatch(register({ username, email, password }))
+    dispatch(register({ username: username.toLowerCase(), email, password }))
       .unwrap()
       .then(() => {
         setSuccessful(true);

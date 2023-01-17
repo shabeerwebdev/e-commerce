@@ -14,11 +14,12 @@ function IndiArti() {
   const { name } = useParams();
   const { pathname } = useLocation();
   const username = useSelector((state) => state?.user?.user?.username);
+  const [skeleton, setSkeleton] = useState({ message: "", show: false });
+
   const dispatch = useDispatch();
-  console.log(username);
 
   const [data, setData] = useState([]);
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
 
   const [dialogData, setDialogData] = useState([]);
   const [showDialog, setShowDialog] = useState(false);
@@ -44,14 +45,37 @@ function IndiArti() {
   useEffect(() => {
     const url = `${BASE_URL}/users/artists?drawnBy=${name}&page=${filter.page}&sort=${filter.sort},${filter.sortOrder}&search=${filter.search}`;
 
-    const res = async () =>
-      await axios.get(url).then((data) => setData(data.data));
+    const res = async () => {
+      setSkeleton({ message: "", show: true });
+      await axios
+        .get(url)
+        .then((res) => {
+          setData(res.data.products);
+          // console.log(res.products.length);
+          if (data.length > 0) {
+            setTimeout(() => {
+              setSkeleton({ message: "", show: false });
+            }, 2000);
+          } else {
+            setTimeout(() => {
+              setSkeleton({ message: "No data found", show: false });
+            }, 2000);
+          }
+        })
+        .catch((err) => {
+          // console.log(err);
+          setSkeleton({
+            message: `${err.message || err.response.message}`,
+            show: false,
+          });
+        });
+    };
     res();
-  }, [name, filter]);
+  }, [name, filter, data.length]);
 
   useEffect(() => {
     const url = `${BASE_URL}/users/find?username=${pathname.split("/")[2]}`;
-
+    setSkeleton({ message: "", show: true });
     const res = async () =>
       await axios.get(url).then((data) => setUser(data.data));
     res();
@@ -109,13 +133,18 @@ function IndiArti() {
     }
   };
 
+  const newLoad = new Array(6).fill(0);
+
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", marginTop: "4rem" }}>
       <Sidebar filter={{ filter, setFilter }} />
       <div className="artist-sec">
         <div className="porfile-card">
-          <img src={user.prfPic} alt="" />
-
+          {Object.keys(user).length > 0 ? (
+            <img src={user.prfPic} alt="" />
+          ) : (
+            <div className="pro-pic-skeleto">Loading...</div>
+          )}
           <div className="details">
             <p>{user.username}</p>
             <div>{giveStars(30)}</div>
@@ -128,8 +157,29 @@ function IndiArti() {
         </div>
 
         <div className="painting-cards">
-          {data.products?.length !== 0 ? (
-            data.products?.map((item, i) => (
+          {skeleton.show ? (
+            newLoad?.map((item, i) => (
+              <div key={i} className="single-card-skeleton">
+                <div className="card-img">
+                  <div className="img"></div>
+                  <p></p>
+                </div>
+                <div className="details-container">
+                  <div className="details">
+                    <p className="ellipsis"></p>
+                    <p></p>
+                  </div>
+                  <div className="details">
+                    <p></p>
+                    <button></button>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : skeleton.message !== "" ? (
+            <div>{skeleton.message}</div>
+          ) : (
+            data?.map((item, i) => (
               <SinglePainting
                 key={item._id}
                 list={list}
@@ -140,11 +190,8 @@ function IndiArti() {
                 setShowDialog={setShowDialog}
               />
             ))
-          ) : (
-            <p>This artist has no paintings</p>
           )}
         </div>
-
         <DetailedDialog
           dialogData={dialogData}
           setDialogData={setDialogData}

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { addProduct, removeProduct } from "../slices/cart";
 import DetailedDialog from "./DetailedDialog";
 
@@ -12,6 +13,7 @@ function SinglePainting({
   purchasedProducts,
   setShowDialog,
 }) {
+  const { pathname } = useLocation();
   const reg = /\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g;
 
   const { user } = useSelector((state) => state.user);
@@ -19,13 +21,17 @@ function SinglePainting({
   const confirmUser = (item) => {
     user ? addToWishList(item) : setShowDialog(true);
   };
+  console.log(list);
   return (
-    <div className="single-card">
+    <div className="single-card fadeIn">
       <div className="card-img">
         <img onClick={() => openDialog(item)} src={item.image} alt="" />
-        <p onClick={() => openDialog(item)} className="featured-sec-center">
-          Click to view
-        </p>
+
+        {pathname !== "/myprofile" && (
+          <p onClick={() => openDialog(item)} className="featured-sec-center">
+            Click to view
+          </p>
+        )}
       </div>
       <div className="details-container">
         <div className="details">

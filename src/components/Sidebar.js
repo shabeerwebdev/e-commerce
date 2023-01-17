@@ -19,7 +19,7 @@ function Sidebar({ filter }) {
       case "/artist/all":
         svgRef1.current.style.fill = "white";
         break;
-      case "/featured":
+      case "/paintings/featured":
         svgRef2.current.style.fill = "white";
         break;
       case "/paintings/all":
@@ -108,9 +108,6 @@ function Sidebar({ filter }) {
   }, []);
 
   const currRoute = pathname.split("/")[2];
-
-  // console.log(currRoute);
-
   const [toggleOrder, setToggleOrder] = useState(true);
 
   const sortChange = (e) => {
@@ -139,7 +136,7 @@ function Sidebar({ filter }) {
         <Crown ref={svgRef1} />
         <span>All Artists</span>
       </Link>
-      <Link id="2" ref={spanRef2} className="flexy" to="/">
+      <Link id="2" ref={spanRef2} className="flexy" to="/paintings/featured">
         <Stars ref={svgRef2} />
         <span>Featured</span>
       </Link>

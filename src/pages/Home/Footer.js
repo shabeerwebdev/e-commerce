@@ -17,7 +17,7 @@ function Footer() {
   const arr = [tech1, tech2, tech3, tech4, tech5, tech6, tech7];
   const arr2 = [soc1, soc3, soc2];
   return (
-    <div>
+    <div className="footer-wrap">
       <div className="footer">
         <div>
           <p style={{ fontSize: "2rem" }} className="head">
