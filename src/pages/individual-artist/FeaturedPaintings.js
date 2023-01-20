@@ -46,9 +46,6 @@ function FeaturedPaintings() {
   };
 
   const { state } = useLocation();
-
-  console.log(state?.item._id);
-
   const [products, setProducts] = useState([]);
   const username = useSelector((state) => state?.user?.user?.username);
 

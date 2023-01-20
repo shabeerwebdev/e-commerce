@@ -1,6 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import art from "../assets/samples/artist1.jpg";
 import { ReactComponent as DownloadSvg } from "../assets/icons/Download.svg";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import { BASE_URL } from "../services/auth.service";
 function DetailedDialog({
   dialogData,
   list,
@@ -24,6 +27,37 @@ function DetailedDialog({
       document.removeEventListener("mousedown", handler);
     };
   }, [setDialogData, dialogData]);
+
+  const [load, setLoad] = useState(false);
+  const { user } = useSelector((state) => state.user);
+
+  const makePayment = async (e) => {
+    // if (totalPrice() <= 0) return;
+    setLoad(true);
+
+    if (user) {
+      const res = await axios
+        .post(`${BASE_URL}/checkout/create-checkout-session`, {
+          products: [dialogData],
+          userId: user._id,
+          email: user.email,
+        })
+        .then((res) => {
+          // alert(res.data.payment_status);
+          if (res.data.url) {
+            window.location.href = res.data.url;
+          }
+        })
+        .catch((error) => {
+          alert("Create Stripe checkout:" + error);
+        });
+      console.log(res, "response mame");
+    } else {
+      setLoad(false);
+      // alert("login");
+      // navigate("/auth");
+    }
+  };
 
   return (
     <div>
@@ -78,18 +112,51 @@ function DetailedDialog({
                 <h5 className="">{dialogData.title}</h5>
                 <h5 className="">By -{dialogData.drawnBy}</h5>
                 <h5>
-                  ₹ {dialogData.price.toFixed(0).toString().replace(reg, ",")}
+                  ₹ {dialogData?.price?.toFixed(0).toString().replace(reg, ",")}
                 </h5>
               </div>
               <div className="details">
                 <p className="desc">{dialogData.description}</p>
-                <button>
-                  {purchasedProducts.includes(dialogData._id)
-                    ? "Download"
-                    : "Buy"}
+                <button
+                  style={{ cursor: "pointer" }}
+                  onClick={
+                    purchasedProducts.includes(dialogData._id)
+                      ? null
+                      : makePayment
+                  }
+                >
+                  {purchasedProducts.includes(dialogData._id) ? (
+                    <a
+                      style={{ color: "white", textDecoration: "none" }}
+                      href={dialogData.image}
+                      download={dialogData.image}
+                    >
+                      Download
+                    </a>
+                  ) : load ? (
+                    "Loading..."
+                  ) : (
+                    "Buy"
+                  )}
                 </button>
               </div>
             </div>
+
+            <p
+              style={{
+                position: "absolute",
+                bottom: "1rem",
+                right: "1rem",
+                color: "red",
+                cursor: "pointer",
+                fontSize: "1.2rem",
+              }}
+              onClick={() => {
+                setDialogData({});
+              }}
+            >
+              ⨲
+            </p>
           </div>
         </div>
       )}

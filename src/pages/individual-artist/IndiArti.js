@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import DetailedDialog from "../../components/DetailedDialog";
 import Sidebar from "../../components/Sidebar";
 import SinglePainting from "../../components/SinglePainting";
@@ -135,6 +135,18 @@ function IndiArti() {
 
   const newLoad = new Array(6).fill(0);
 
+  const displayTxt = () => {
+    return (
+      <div>
+        <p>Please Login to Add to cart !</p>
+        <br />
+        <Link to="/auth">
+          <p>Login Now</p>
+        </Link>
+      </div>
+    );
+  };
+
   return (
     <div style={{ display: "flex", marginTop: "4rem" }}>
       <Sidebar filter={{ filter, setFilter }} />
@@ -200,7 +212,9 @@ function IndiArti() {
           purchasedProducts={purchasedProducts}
         />
 
-        {showDialog && <DialogBox setShowDialog={setShowDialog} />}
+        {showDialog && (
+          <DialogBox displayTxt={displayTxt} setShowDialog={setShowDialog} />
+        )}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Intro from "../../components/Intro";
-import svgsa from "../../assets/icons/visibility.svg";
+import logo from "../../assets/icons/logo2.png";
 
 import { Navigate, useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
@@ -201,7 +201,8 @@ function Auth() {
       >
         <Form id="form" autoComplete="off" className="auth">
           <div className="hideRegister" onClick={showEmail}>
-            {hideRegister ? "Register" : "Login"}
+            <img className="logo" src={logo} alt="" />
+            <p>{hideRegister ? "Register" : "Login"}</p>
           </div>
           <div className="input-wrapper">
             <svg

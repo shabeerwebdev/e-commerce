@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/icons/logo.png";
 import avatar from "../assets/images/avatar.png";
 import Cart from "../pages/Home/Cart";
 import Wishlist from "../pages/Home/Wishlist";
@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import ProfileShortcut from "./ProfileShortcut";
 import { ReactComponent as ArrowDown } from "../assets/icons/chevron-down.svg";
 import DialogBox from "./DialogBox";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const headerRef = useRef();
@@ -32,9 +33,16 @@ function Header() {
 
   const iconRef = useRef();
 
+  const navigate = useNavigate();
+
   return (
     <div ref={headerRef} className="header">
-      <img className="logo" src={logo} alt="logo" />
+      <img
+        onClick={() => navigate("/")}
+        className="logo"
+        src={logo}
+        alt="logo"
+      />
       <div
         className="header-components glass2"
         style={{
@@ -97,7 +105,7 @@ function Header() {
         />
       )}
 
-      {showDialog && <DialogBox setShowDialog={setShowDialog} />}
+      {/* {showDialog && <DialogBox setShowDialog={setShowDialog} />} */}
     </div>
   );
 }

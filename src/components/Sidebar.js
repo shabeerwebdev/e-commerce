@@ -12,6 +12,8 @@ import { useSelector } from "react-redux";
 function Sidebar({ filter }) {
   const { pathname } = useLocation();
 
+  console.log(pathname);
+
   const user = useSelector((state) => state.user?.user);
 
   useEffect(() => {
@@ -150,78 +152,80 @@ function Sidebar({ filter }) {
           <span>My Purchases</span>
         </Link>
       )}
-      <div className="sortBy">
-        <div id="5" ref={spanRef5} className="flexy">
-          <Sort ref={svgRef5} />
-          <span>Sort By</span>
-        </div>
+      {pathname === "/artist/all" && (
+        <div className="sortBy">
+          <div id="5" ref={spanRef5} className="flexy">
+            <Sort ref={svgRef5} />
+            <span>Sort By</span>
+          </div>
 
-        {currRoute === "all" && (
+          {currRoute === "all" && (
+            <div className="sortCat">
+              <input
+                checked={filter?.filter.sort === "username"}
+                value="username"
+                onChange={sortChange}
+                id="username"
+                type="radio"
+                name="sortType"
+              />
+              <label htmlFor="username">Name</label>
+              {filter?.filter.sort === "username" ? (
+                <span onClick={toggleOrderChange}>
+                  {toggleOrder ? (
+                    <UpArrow title="Ascending" />
+                  ) : (
+                    <DownArrow title="Descending" />
+                  )}
+                </span>
+              ) : null}
+            </div>
+          )}
           <div className="sortCat">
             <input
-              checked={filter?.filter.sort === "username"}
-              value="username"
+              checked={filter?.filter.sort === "soldCount"}
+              value="soldCount"
               onChange={sortChange}
-              id="username"
+              id="soldCount"
               type="radio"
               name="sortType"
             />
-            <label htmlFor="username">Name</label>
-            {filter?.filter.sort === "username" ? (
+            <label htmlFor="soldCount">Sold Count</label>
+            {filter?.filter.sort === "soldCount" ? (
               <span onClick={toggleOrderChange}>
                 {toggleOrder ? (
-                  <UpArrow title="Ascending" />
-                ) : (
                   <DownArrow title="Descending" />
+                ) : (
+                  <UpArrow title="Ascending" />
                 )}
               </span>
             ) : null}
           </div>
-        )}
-        <div className="sortCat">
-          <input
-            checked={filter?.filter.sort === "soldCount"}
-            value="soldCount"
-            onChange={sortChange}
-            id="soldCount"
-            type="radio"
-            name="sortType"
-          />
-          <label htmlFor="soldCount">Sold Count</label>
-          {filter?.filter.sort === "soldCount" ? (
-            <span onClick={toggleOrderChange}>
-              {toggleOrder ? (
-                <DownArrow title="Descending" />
-              ) : (
-                <UpArrow title="Ascending" />
-              )}
-            </span>
-          ) : null}
-        </div>
 
-        {currRoute !== "all" && (
-          <div className="sortCat">
-            <input
-              checked={filter?.filter.sort === "price"}
-              value="price"
-              onChange={sortChange}
-              id="price"
-              type="radio"
-              name="sortType"
-            />
-            <label htmlFor="price">Price</label>
-            {filter?.filter.sort === "price" ? (
-              <span onClick={toggleOrderChange}>
-                {toggleOrder ? (
-                  <UpArrow title="Ascending" />
-                ) : (
-                  <DownArrow title="Descending" />
-                )}
-              </span>
-            ) : null}
-          </div>
-        )}
-      </div>
+          {currRoute !== "all" && (
+            <div className="sortCat">
+              <input
+                checked={filter?.filter.sort === "price"}
+                value="price"
+                onChange={sortChange}
+                id="price"
+                type="radio"
+                name="sortType"
+              />
+              <label htmlFor="price">Price</label>
+              {filter?.filter.sort === "price" ? (
+                <span onClick={toggleOrderChange}>
+                  {toggleOrder ? (
+                    <UpArrow title="Ascending" />
+                  ) : (
+                    <DownArrow title="Descending" />
+                  )}
+                </span>
+              ) : null}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

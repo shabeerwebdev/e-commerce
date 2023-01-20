@@ -22,6 +22,8 @@ function Artists() {
     res();
   }, []);
 
+  // console.log(artists);
+
   const openArtistPage = (item) => {
     navigate(`/artist/${item.username}`, {
       state: {
@@ -37,7 +39,7 @@ function Artists() {
   const stars = new Array(3).fill(0);
 
   const giveStars = (count) => {
-    if (!count) {
+    if (!count || count <= 2) {
       return (
         <div>
           <Starsvg style={{ fill: "none" }} />
@@ -95,7 +97,7 @@ function Artists() {
                       <p className="featured-sec-center">Explore</p>
                     </div>
                     <p>{item.username}</p>
-                    <span>{item.soldCount || 0} sold</span>
+                    <span>{item.soldCount} sold</span>
                   </div>
                 )
             )
