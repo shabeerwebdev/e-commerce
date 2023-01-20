@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProduct, removeProduct, emptyCart } from "../../slices/cart";
 import DetailedDialog from "../../components/DetailedDialog";
 import { BASE_URL } from "../../services/auth.service";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SinglePainting from "../../components/SinglePainting";
+import DialogBox from "../../components/DialogBox";
 
 function AllPaintings() {
   const [data, setData] = useState([]);
@@ -77,6 +78,18 @@ function AllPaintings() {
   const [showDialog, setShowDialog] = useState(false);
   const newLoad = new Array(6).fill(0);
   const purchasedProducts = products.map((item) => item._id);
+
+  const displayTxt = () => {
+    return (
+      <div>
+        <p>Please Login to Add to cart !</p>
+        <br />
+        <Link to="/auth">
+          <p>Login Now</p>
+        </Link>
+      </div>
+    );
+  };
   return (
     <div style={{ display: "flex", marginTop: "4rem" }}>
       <Sidebar />
@@ -125,8 +138,13 @@ function AllPaintings() {
           addToWishList={addToWishList}
           list={list}
           purchasedProducts={purchasedProducts}
+          setShowDialog={setShowDialog}
         />
       </div>
+
+      {showDialog && (
+        <DialogBox displayTxt={displayTxt} setShowDialog={setShowDialog} />
+      )}
     </div>
   );
 }

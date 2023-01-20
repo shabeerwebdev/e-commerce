@@ -210,6 +210,7 @@ function IndiArti() {
           addToWishList={addToWishList}
           list={list}
           purchasedProducts={purchasedProducts}
+          setShowDialog={setShowDialog}
         />
 
         {showDialog && (

@@ -45,10 +45,12 @@ function SinglePainting({
         })
         .catch((error) => {
           alert("Create Stripe checkout:" + error);
+          setLoad(false);
         });
       console.log(res, "response mame");
     } else {
       setLoad(false);
+      setShowDialog(true);
       // alert("login");
       // navigate("/auth");
     }

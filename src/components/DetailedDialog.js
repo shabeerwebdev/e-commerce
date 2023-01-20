@@ -10,6 +10,7 @@ function DetailedDialog({
   addToWishList,
   purchasedProducts,
   setDialogData,
+  setShowDialog,
 }) {
   const reg = /\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g;
 
@@ -50,10 +51,12 @@ function DetailedDialog({
         })
         .catch((error) => {
           alert("Create Stripe checkout:" + error);
+          setLoad(false);
         });
       console.log(res, "response mame");
     } else {
       setLoad(false);
+      setShowDialog(true);
       // alert("login");
       // navigate("/auth");
     }
