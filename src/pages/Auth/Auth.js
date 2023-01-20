@@ -311,7 +311,7 @@ function Auth() {
           </div>
 
           <div className="login-action">
-            <button type="submit">
+            <button style={{ margin: "auto", width: "100%" }} type="submit">
               {loading ? (
                 <div>Loading...</div>
               ) : hideRegister ? (
@@ -320,7 +320,7 @@ function Auth() {
                 <p>Register</p>
               )}
             </button>
-            <span>or</span>
+            {/* <span>or</span>
             <svg
               width="32"
               height="32"
@@ -352,7 +352,7 @@ function Auth() {
                 d="M16.3265 6.36363C18.7236 6.36363 20.8757 7.1709 22.5677 8.75635L27.2505 4.16727C24.423 1.58545 20.7273 0 16.3265 0C9.94436 0 4.42301 3.58553 1.73655 8.81462L7.1911 12.9601C8.47496 9.17825 12.0742 6.36363 16.3265 6.36363Z"
                 fill="#EA4335"
               />
-            </svg>
+            </svg> */}
           </div>
           <div className="hideRegister2" onClick={showEmail}>
             {errMessage && <div className="alert-danger">{errMessage}</div>}
