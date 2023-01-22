@@ -40,6 +40,7 @@ function Cart({ openCart, setCartOpen, iconRef, setShowDialog }) {
     if (totalPrice() <= 0) return;
     setLoad(true);
     if (user.user) {
+      alert("Use 4242 4242 4242 4242 12/50 111 for free purchase of paintings!");
       const res = await axios
         .post(`${BASE_URL}/checkout/create-checkout-session`, {
           products,
